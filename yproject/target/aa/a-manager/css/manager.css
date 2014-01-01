@@ -1,0 +1,262 @@
+@CHARSET "UTF-8";
+
+#coach-calendartext div{
+	
+	width: 180px;
+	margin: 0px auto;
+	border: 1px solid #888;
+	height: 199px;
+/* 	position: static; */
+	float: right;
+	margin-right:17px;
+	padding: 10px;
+}
+#coach-calenimg{
+/* 	border: 1px solid blue;  */
+	margin-top: -285px; margin-left: 335px; width: 650px;
+	height: 82px;
+	
+}
+#coach-calenimg img{
+/* 	border:1px solid green; */
+	width: 60px;
+	height: 50px;
+	position: relative;
+}
+#coach-calenimg span{
+/* 	border: 1px solid blue; */
+	position: relative;
+	font-weight: border;
+	font-family: '굴림';
+	line-height: 	28px;
+}
+#btnUpdateGame{
+	background-color: #375500;
+}
+
+
+.team-text.span3 {
+	margin-left: 24px;
+	width: 221px;
+	height: 230px;
+}
+
+.check_tname {
+	color: #709c20;
+}
+
+.check_tnmae1 {
+	color: black;
+}
+
+#manager_sidebar {
+	margin-top: -20px;
+}
+
+#manager_sidebar ul {
+	/* 	border-bottom: 1.5px solid #709c20; */
+	/* 	width: 993px; */
+	/* 	margin:0px auto; */
+	
+}
+
+#sidebar li span {
+	top: 11px;
+}
+
+#manager_sidebar li {
+	margin-left: 2px;
+	border: thin solid #bcbcba;
+	/* border-bottom: 1.5px solid #709c20; */
+	height: 36px;
+	margin-top: 32px;
+	background-color: #ededed;
+	cursor: pointer;
+}
+
+#sidebar a {
+	padding-top: 12px;
+	border: none;
+}
+
+#sidebar .current {
+	border: none;
+	margin: 0;
+}
+/* 버튼*/
+#btnRollBookSend,#btnEvalUpdate {
+	position: relative;
+	top: 200px;
+	left: -336px;
+	width: 232px;
+}
+
+#manager_sidebar li.manager_current {
+	background-color: #6EAF2D;
+	color: #f5f5f5;
+}
+
+/* ------------------------------------------------------------------- */
+/* 훈련평가 달력 */
+.dtstart {
+	width: 231px;
+	float: left;
+	background: #fff;
+	border: 1px solid #5f5f5f;
+	box-shadow: 1px 1px 3px #5f5f5f;
+	font-size: 100%;
+	font-weight: bold;
+	margin-left: -313px;
+	left: 36%;
+	margin-bottom: 20px;
+	margin-top: 85px;
+	position: relative;
+}
+
+.eval_month {
+	display: block;
+	font-weight: bold;
+	line-height: 2;
+	text-align: center;
+	border-top: 1em solid #b3461d;
+	font-size: 2.1em;
+	letter-spacing: .2em;
+	padding: .55em 1em 1em;
+	text-transform: uppercase;
+}
+
+.eval_year {
+	display: block;
+	color: white;
+	position: absolute;
+	left: 93px;
+	top: -5px;
+	font-size: 20px;
+}
+
+.dtstart::before,.dtstart::after {
+	content: "\00A0";
+	border: 1px solid #333;
+	border-right-color: #f1f1f4;
+	border-bottom-color: #f1f1f4;
+	border-radius: 2px;
+	display: block;
+	width: 0;
+	height: .5em;
+	position: absolute;
+	top: -.3em;
+}
+
+.dtstart::before {
+	left: .65em;
+}
+
+.dtstart::after {
+	right: .65em;
+}
+
+/* ========================================================== */
+.trainimg {
+	width: 150px;
+	height: 150px;
+}
+
+.train_font {
+	font-size: 25px;
+	color: red;
+	margin-right: 5px;
+}
+
+.train_font_name {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.table-evalution tr td {
+	text-align: center;
+}
+
+.table-evalution td {
+	text-align: center;
+}
+
+.col {
+	padding: 0px;
+	background-color: #f3f4f5;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	border: 8px solid #e5e5e5;
+}
+
+.col h3 {
+	padding: 4px;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+	background: #888888;
+	color: #fff;
+	text-align: center;
+	margin: 5px 0 5px 0;
+}
+
+.col p {
+	background: #e5e5e5;
+	margin: 0px 0px 2px 0px;
+	padding-top: 20px;
+	border-radius: 5px;
+	height: 40px;
+	font-weight: bold;
+	color: #2d3438;
+	line-height: 100%;
+
+	/*  color: red; */
+}
+
+.move {
+	width: 100%;
+	-webkit-animation: move5 1s linear;
+}
+
+@
+-webkit-keyframes move5 { 0% {
+	width: 0%;
+}
+
+100%
+{
+width
+
+
+:
+
+ 
+
+100%;
+}
+}
+.wrapper {
+	width: 300px;
+	height: 450px;
+	margin: 20px 20px;
+	background: #fff;
+	padding: 0px;
+	border: 10px solid #aaa;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	text-align: center;
+	float: left;
+}
+
+#gameTable input {
+	width: 50px;
+	text-align: center;
+}
+
+#gameTable .game-team-name {
+	width: 120px;
+}

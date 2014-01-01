@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+
+#sponserPage p{
+
+}
+.sponserTable th{
+	height: 40px;
+	
+	border-top: 1px solid #e3e3e3;
+	border-bottom: 1px solid white;
+	background-color: #eaeaea;
+	font-weight: border;
+}
+.sponserTable td{
+	height: 40px;
+	border-top: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
+	background-color: white;
+}
+.sponserTable tr{
+/* 	height: 40px; */
+	
+}
+.sponserTable a,.sponserTable a:hover, .sponserTable a:visited {
+	color: #888
+}
+/* .value { */
+/*   position: absolute; */
+/*   top: 30px; */
+/*   left: 50%; */
+/*   margin: 0 0 0 -20px; */
+/*   width: 40px; */
+/*   text-align: center; */
+/*   display: block; */
+  
+/*   optional */
+  
+/*   font-weight: normal; */
+/*   font-family: Verdana,Arial,sans-serif; */
+/*   font-size: 14px; */
+/*   color: #333; */
+/* } */
+
+/* .price-range-both.value { */
+/*   width: 100px; */
+/*   margin: 0 0 0 -50px; */
+/*   top: 26px; */
+/* } */
+
+/* .price-range-both { */
+/*   display: none;  */
+/* } */
+
+/* .value i { */
+/*   font-style: normal; */
+/* } */

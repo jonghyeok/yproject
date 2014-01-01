@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.SponserDao">
+	
+	<insert id="addSponserCheck"  parameterType="SponserCheck" useGeneratedKeys="true" keyProperty="spcno">
+		insert ignore into TORY_SPONSER_CHECK(SPCACCNO, SPCNAME, SPCTIME, SPCDATA)
+		values(#{spcaccno}, #{spcname}, now(),#{spcdata});
+	
+	</insert>
+	
+	<insert id="addSponserData"  parameterType="Sponser">
+		insert into TORY_SPONSER_DATA(SPCNO,SPDDATE,SPDTYPE,SPDNAME,SPDINCOME,SPDWHERE)
+		values(#{spcno},#{spddate},#{spdtype},#{spdname},#{spdincome},#{spdwhere});
+	</insert>
+	
+	<select id="findSameData" parameterType="Sponser" resultType="int">
+	    select count(*)
+	    from TORY_SPONSER_DATA
+	    where SPDDATE=#{spddate} and SPDTYPE=#{spdtype} and SPDNAME=#{spdname} and SPDINCOME=#{spdincome} and SPDWHERE=#{spdwhere}
+	</select>
+	
+	<select id="getAddData" parameterType="SponserCheck" resultType="Sponser">
+	    select *
+	    from TORY_SPONSER_DATA
+	    where SPCNO=#{spcno}
+	</select>
+	
+	<select id="getSerchSponserData" parameterType="SponserCheck" resultType="Sponser">
+	SELECT SPDDATE, SPDTYPE, SPDNAME, SPDINCOME, SPDWHERE
+	FROM TORY_SPONSER_CHECK t1, TORY_SPONSER_DATA t2
+	where t1.spcno=t2.spcno 
+	<if test="spcstart_string != null and spcend_string != null">
+	    AND t2.spddate between #{spcstart} and #{spcend}
+	</if>
+	<if test="spcstart_string != null and spcend_string = null">
+	    AND t2.spddate >= #{spcstart}
+	</if>
+	<if test="spcstart_string = null and spcend_string != null">
+	    AND #{spcend} >= t2.spddate  
+	</if>
+	<if test="spcname != null">
+		AND t1.spcname = #{spcname}
+	</if>
+	<if test="spdname != null">
+		AND t2.spdname = #{spdname}
+	</if>
+	    
+	</select>
+	
+	
+	<insert id="make_sponser_data" parameterType="SponserPersonData">
+	    insert ignore into TORY_SPONSER(MID,SPPC,SPNAME,SPACNAME)
+		values(#{mid}, #{sppc}, #{spname},#{spacname});
+	</insert>
+	
+	<update id="sponser_spcname_Setup" parameterType="SponserPersonData">
+	 	update TORY_SPONSER SET
+		SPACNAME=#{spacname}, SPPC=#{sppc}
+		<if test="spname != null">
+		, spname = #{spname}
+		</if>
+		where MID = #{mid}
+	</update>
+
+	<select id="serch_sponser_only_member" resultType="SponserPersonData">
+	    select mid
+	    from TORY_MEMBER
+	    where mlevel=1;
+	</select>
+	
+	<select id="getSponsersData" resultType="SponserPersonData">
+	    select t1.mid, t1.spacname, t1.sppc, t1.spname, t2.mphone
+	    from TORY_SPONSER t1, TORY_MEMBER t2
+	    where t2.mlevel=1 and t1.mid=t2.mid;
+	</select>
+	
+	<select id="get_my_SponserData" parameterType="SponserPersonData" resultType="SponserPersonData">
+	    select t1.mid,t2.mname, t1.spacname, t1.sppc, t1.spname, t2.mphone
+	    from TORY_SPONSER t1, TORY_MEMBER t2
+	    where t2.mlevel=1 and t1.mid=t2.mid and t1.mid=#{mid};
+	</select>
+	
+	<select id="serch_count_torysponser" parameterType="SponserPersonData" resultType="int">
+	    select count(*)
+	    from TORY_SPONSER
+	    where mid=#{mid}
+	</select>
+	
+	
+	<select id="serch_my_valance" parameterType="SponserPersonData" resultType="ValanceData">
+	    select spdincome, spddate, spdwhere
+		from TORY_SPONSER_DATA
+		where spdname=#{spacname}
+	</select>
+	
+	<select id="getlist_sponserData" parameterType="SponserPersonData" resultType="SponserPersonData">
+	    SELECT DISTINCT spdname,spdno
+	    FROM TORY_SPONSER_DATA
+	    where spdname=#{spacname}
+	</select>
+
+	<select id="getlist_sponserUser" resultType="SponserPersonData">
+	    SELECT SPNO, SPACNAME, MID
+	    FROM  TORY_SPONSER
+	</select>	
+
+	<select id="find_sponserUser" parameterType="SponserPersonData" resultType="int">
+	    select count(*)
+	    from TORY_SPONSER_INFO t1, TORY_SPONSER t2
+	    where t1.spno=t2.spno and t2.mid=#{mid}
+	</select>
+	
+	<insert id="update_sponser_insert" parameterType="SponserPersonData">
+	    insert ignore into TORY_SPONSER_INFO(SPNO,SPDNO)
+		values(#{spno},#{spdno});
+	</insert>
+	
+	<update id="update_sponser_update" parameterType="SponserPersonData">
+	    update TORY_SPONSER_INFO SET
+		SPDNO=#{spdno}
+		where MID = #{mid}
+	</update>
+			
+</mapper> 
+
+
+
+
+
+

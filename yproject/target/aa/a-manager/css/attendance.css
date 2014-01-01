@@ -1,0 +1,63 @@
+<!-- 체크박스 CSS!!!!!!!!!!!!!! -->
+
+.checklist {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+
+.checklist li {
+		list-style: none;
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 70px;
+        background: url(../../a-manager/checkboxImg/checkboxbg.gif) no-repeat 0 0;
+        width: 105px;
+        height: 150px;
+        position: relative;
+        font: normal 11px/1.3 "Lucida Grande","Lucida","Arial",Sans-serif;
+}
+
+.checklist li.selected {
+        background-position: -105px 0;
+}
+
+.checklist li.selected .checkbox-select {
+	    display: none;
+}
+
+.checkbox-select {
+        display: block;
+        float: left;
+        position: absolute;
+        top: 118px;
+        left: 10px;
+        width: 85px;
+        height: 23px;
+        background: url(../../a-manager/checkboxImg/select.gif) no-repeat 0 0;
+        text-indent: -9999px;
+}
+
+.checklist li input[type=checkbox] {
+        display: none;         
+}
+
+a.checkbox-deselect {
+        display: none;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        position: absolute;
+        top: 120px;
+        right: 10px;
+}
+
+.checklist li.selected a.checkbox-deselect {
+        display: block;
+}
+
+.checklist li label {
+        display: block;
+        text-align: center;
+        padding: 8px;
+}

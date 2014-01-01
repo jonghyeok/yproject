@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.GalleryDao">
+	
+	<insert id="addPhotoTable" parameterType="Gallery"
+		useGeneratedKeys="true" keyProperty="ino">
+		insert into TORY_IMG
+		(MID, ICONTENT, ITITLE)
+		
+		values( #{mid},#{ititle},#{icontent} )
+	</insert>
+	
+	<update id="addPhotoContent" parameterType="Gallery">
+		update TORY_IMG set
+		ITITLE = #{ititle},
+		ICONTENT = #{icontent},
+		IUPDATE = now()
+				
+		where INO = #{ino}
+	</update>
+
+	<select id="getGalleyListSearch" parameterType="String"
+	    resultType="Gallery">
+	 <bind name="pattern" value="'%' + _parameter+ '%'" />
+	    
+	    select t1.INO, t1.ITITLE, t1.IUPDATE, t2.IURL
+		from TORY_IMG t1, TORY_IMGINFO t2
+		where (t1.INO = t2.INO)  and  ITITLE LIKE #{pattern};
+	</select>
+
+	<insert id="photoUpload" parameterType="Gallery"
+		useGeneratedKeys="true" keyProperty="ifileno">
+		insert into TORY_IMGINFO
+		(INO, IURL, ISIZE)
+		
+		values( #{ino}, #{iurl}, #{isize} ) 
+	</insert>
+	
+	<select id="photoList"  parameterType="Map" resultType="Gallery">
+	 	select t1.INO, t1.ITITLE, t1.IUPDATE, t2.IURL
+		from TORY_IMG t1, TORY_IMGINFO t2
+		where t1.INO = t2.INO 
+		 order by t1.INO desc
+		limit #{start_Index}, #{pageSize} 
+	</select>
+	
+		<!-- 페이징 처리  -->
+	<select id="countgalley"  
+			resultType="int"><![CDATA[
+	    select count(*)
+	    from TORY_IMGINFO
+	]]></select>
+	
+	<delete id="photoDelete" parameterType="int">
+		delete from TORY_IMGINFO
+		where INO =#{ino}
+	</delete>
+	
+	<delete id="photoContentDelete" parameterType="int">
+		delete from TORY_IMG
+		where INO=#{ino}
+	</delete>
+	
+	<update id="photoUpdate" parameterType="Gallery">
+		update TORY_IMG set
+		ITITLE = #{ititle},
+		ICONTENT = #{icontent},
+		IUPDATE = now()
+				
+		where INO = #{ino}
+	</update>
+	
+	<select id="photoView" parameterType="int" resultType="Gallery">
+ 		select 	t1.MID, t1.INO, t1.ITITLE, t1.ICONTENT, t1.IUPDATE, t2.IURL, t2.ISIZE
+		from 	TORY_IMG t1, TORY_IMGINFO t2
+		where	t1.INO = #{ino} and t1.INO = t2.INO;
+	</select>
+</mapper> 
+
+
+
+
+
+

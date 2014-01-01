@@ -1,0 +1,345 @@
+<div id='yyy'>
+	<nav id="menu">
+		<ul>
+			<li class="c-level"><a id='sidebar_attendance' href="#">출석체크</a></li>
+			<li class="c-sponsor"><a href="#">경기기록관리</a></li>
+			<li class="c-sponsor"><a href="#">훈련기록관리</a></li>
+			<li class="c-sponsor"><a id="sidebar_record" href='#'>인성기록관리</a></li>			
+			<li class="c-team"><a id='sidebar_memberAdd' href="#">학생추가</a></li>
+
+			<div class="current">
+				<div class="top-arrow"></div>
+	man			<div class="current-back"></div>
+				<div class="bottom-arrow"></div>
+			</div>
+		</ul>
+	</nav>
+</div>
+
+
+<div id="add_select">
+	<table style="/* border:5px solid blue;  */margin: 100px 0px 100px 300px">
+	<tr>
+	<td style="width:370px; /* border: 2px solid red; */"><a id="new_team_member" href="#"><img src="11.png"></a></td>
+	<td style="margin-left: 50px"><a id="origin_team_member" href="#"><img src="22.png"></a></td>
+	</tr>
+	</table>
+</div>
+
+
+
+<!-- 기존 학생 추가  -->
+<section id='manager_memberAdd'>
+	<div class="page-title">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<i class="icon-envelope-alt page-title-icon"></i>
+					<h2>Add member /</h2>
+					<p>insert add memberInfo</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="contact-us container">
+		<div class="row">
+			<div class="contact-form span7">
+			
+		
+		
+	<!-- 학생 검색 -->	
+	
+	<div id="team_kamdok_serch" title="학생검색">
+		<article>팀의 감독의 이름을 검색 해 주세요.</article>
+		<form>
+		<input type="text" id="kamdok_serch_text" required placeholder="학생이름">
+		<span id="btn_team_kamdok_serch" class="btnsearch">검색</span>
+		</form>
+		
+		<article id="kamdok_serch_call" style="display: none;">학생을 선택 해 주세요.</article>	
+		<ul id="kamdok_list">
+		</ul>
+	</div>
+				<form>
+				 <span id="btnTeamKamdokSerch" class="btnsearch">학생검색</span>
+					<label>아이디</label> 
+					<input class="tkid"  type="text" required readonly>
+					
+					<label>이름</label> 
+					<input id="tkname" type="text" required readonly>	
+					
+					<label>휴대폰  번호</label> 
+					<input id="tkphone" type="text" required readonly>
+				
+					<label>팀 번호</label> 
+					<input class="tno" type="text"> 					
+				
+					<label>팀 이름</label> 
+					<input id="tname" type="text" readonly> 
+					
+					<label>주소</label> 
+					<input id="tkaddr" placeholder=" address..." readonly> 
+					
+					
+					<label>등번호 No.</label> 
+					<input id="tsbackno" type="text" placeholder="back number... int">
+
+					<label>생년월일</label> 
+					<input id="tsbir" type="date" placeholder="년도-월-일"> 
+					
+					<label>활동상태</label> 
+					<input id="tsactive" type="text" placeholder="O / X "> 
+					
+					<label>졸업일</label> 
+					<input id="tsfinish" type="date" placeholder="년도-월-일"> 
+					
+					
+					<label>취미</label>					
+					<input id="tshobby" type="text" placeholder="interest...">
+					
+					<label>가족관계</label> 
+					<select style="width: auto;">
+						<option>무</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>남 
+					
+					<select style="width: auto;">
+						<option>무</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>녀 
+					
+					<select style="width: auto;">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>째 
+				
+					<label>보호자 연락처</label> 
+					<input id="tsgphone" type="text" placeholder="contact...">
+
+					<label>기타사항</label>
+					<textarea id="tsother" placeholder="etc.."></textarea>
+					
+					<button id='btnOriginStudentAdd'>학생 추가</button>
+				</form>
+			</div>
+			
+			<div class="contact-address span5">
+				<br><br><label>사진</label>
+				<div class="map"></div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+
+<!-- NEW 학생추가 -->
+<section id='manager_new_memberAdd'>
+	<div class="page-title">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<i class="icon-envelope-alt page-title-icon"></i>
+					<h2>Add member /</h2>
+					<p>insert add memberInfo</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="contact-us container">
+		<div class="row">
+			<div class="contact-form span7">
+			
+				<form>
+				 
+					<label>아이디</label> 
+					<input id="nid"  type="text" >
+					
+					<label>이름</label> 
+					<input id="nname" type="text" >	
+					
+					<label>비밀번호</label> 
+					<input id="npassword" type="password" >	
+					
+					<label>이메일</label> 
+					<input id="nemail" type="text" >
+					
+					<label>전화 번호</label> 
+					<input id="nphone" type="text" >
+				
+					<label>팀 번호</label> 
+					<input id="ntno" type="text" > 					
+				
+					<label>팀 이름</label> 
+					<input id="ntname" type="text" > 
+					
+					<label>주소</label> 
+					<input id="ntsaddr" placeholder=" address..." > 
+					
+					
+					<label>등번호 No.</label> 
+					<input id="ntsbackno" type="text" placeholder="back number... int">
+					
+					<label>가입일</label> 
+					<input id="nregdate" type="date" placeholder="년도-월-일"> 
+					
+					<label>생년월일</label> 
+					<input id="nbir" type="date" placeholder="년도-월-일"> 
+					
+					<label>활동상태</label> 
+					<input id="nativeir" type="text" placeholder="O / X "> 
+					
+					<label>졸업일</label> 
+					<input id="nfinish" type="date" placeholder="년도-월-일"> 
+					
+					
+					<label>취미</label>					
+					<input id="nhobby" type="text" placeholder="interest...">
+					
+					<label>가족관계</label> 
+					<select style="width: auto;">
+						<option>무</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>남 
+					
+					<select style="width: auto;">
+						<option>무</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>녀 
+					
+					<select style="width: auto;">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>째 
+				
+					<label>보호자 연락처</label> 
+					<input id="ngphone" type="text" placeholder="contact...">
+
+					<label>기타사항</label>
+					<textarea id="nother" placeholder="etc.."></textarea>
+					
+					<button id='btnStudentAdd'>학생 추가</button>
+				</form>
+			</div>
+			
+			<div class="contact-address span5">
+				<br><br><label>사진</label>
+				<div class="map"></div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+<!-- 출석 체크 -->
+<section class="tableForm attendance">
+	<div id="content">
+			<div class="page-title">
+				<div class="container">
+					<div class="row">
+						<div class="span12">
+							<i class="icon-tasks page-title-icon"></i>
+							<h2>attendance!</h2>
+							</div></div></div>
+			</div>
+			
+		<br>
+		<p align='left'>날짜: <input type='date'></p>
+		<p align="left">
+			검색: <input type='text' id='txtFilter'
+				onkeyup='{SearchBar();return false}'
+				onkeypress='javascript:if(event.keyCode==13){ SearchBar(); return false;}'>
+			
+		</p>
+
+		<ul class="checklist" style="min-height: 400px">
+				<!-- 출첵 학생 리스트 들어감 -->
+		</ul>
+		
+		<form>
+		<button>전송</button>
+		</form>
+	</div>
+</section>
+
+
+<!-- 인성기록 -->
+<section id="sidebar_rc" class="tableForm">
+	<div id="content">
+		<table id='tables' style="width: 100%" cellpadding="0" cellspacing="0" class="short-table red">
+			<div class="page-title">
+				<div class="container">
+					<div class="row">
+						<div class="span12">
+							<i class="icon-tasks page-title-icon"></i>
+							<h2>attendance</h2>
+							</div></div></div>
+			</div>
+				</br>
+				<p align="left"> 
+				검색: <input type='text' id='txtFilter' onkeyup='{SearchBar();return false}'
+							onkeypress='javascript:if(event.keyCode==13){ SearchBar(); return false;}'>
+				</p>
+				
+			<thead>
+				<tr>
+					<th > </th>
+					<th> 평가항목</th>
+					<th>매우높음 </th>
+					<th> 높음</th>
+					<th> 보통</th>
+					<th> 낮음</th>
+					<th> 매우낮음</th>
+				</tr>
+				
+			</thead>	
+						
+			<tbody id='tableContent' class="table-evalution">
+		 
+			</tbody>		
+						
+		</table>
+
+		<a href='#'><button id='btnAttend'>전송</button></a>
+	</div>
+</section>
+
+<script>
+  $(function() {
+    $( ".btnsearch" ).button({
+      icons: {
+        primary: "ui-icon-search"
+      }
+  /*     text: false */
+    })
+  });
+  $(function() {
+	    $( ".btn-Change" ).button({
+	      icons: {
+	        primary: "ui-icon-gear"
+	      }
+	  /*     text: false */
+	    })
+	 });
+  </script>

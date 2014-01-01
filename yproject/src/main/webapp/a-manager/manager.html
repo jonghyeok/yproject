@@ -1,0 +1,343 @@
+<section id="mgr_sidebar" style="display: none; width: 1000px; margin: 0px auto; margin-top: 50px;">
+		
+<div id='manager_sidebar' >
+	
+  <div id="sidebar" style=" margin-left: 0px; min-height: 70px;">
+  
+	<ul id="sidebarUl" style="min-height: 70px;">
+		<li id="side_Calendar">
+		<span>
+			일정보기
+		</span>
+		</li>
+		<li id="side_Roll">
+		<span>
+			 출석하기
+		</span>
+		</li>
+		<li id="side_RollAdd">
+		<span>
+			 출석하기
+		</span>
+		</li>		
+		<li id="side_Train">
+		<span>
+			평가하기
+		</span>
+		</li>
+		<li id="side_TrainAdd">
+		<span>
+			평가하기
+		</span>
+		</li> 		 
+		<li id="side_Game">
+		<span>
+			경기기록
+		</span>
+		</li>
+		<li id="side_GameAdd">
+		<span>
+			경기기록
+		</span>
+		</li> 		 
+	</ul>
+</div>
+	
+</div>
+</section>
+<section id ="frepare" style="width: 1000px; height:600px; margin: 0px auto;  background-color: white; border-top: 3px solid #709c20;">
+	
+	<div style="margin-top: 200px;">
+		<p style="font-size: 14px;">상단 메뉴를 선택하여 주세요</p>
+	</div>
+
+</section>
+
+<!-- 어드민 리스트 -->
+<div id="mgr_list" class="container" style="width:1000px; margin: 0px auto; margin-top: 35px;">
+	<div class="team-text span3">
+		<h4>팀이름</h4>
+		<img src="images/team/team5.jpg">
+		<div class="social-links">
+			<a class="manager_setting  mgrList" href="#" data-no="1"></a>
+		</div>
+	</div>
+
+</div>
+
+
+
+<!-- 달력 -->
+<section id="kamdok_Calendar" >
+	<div style="width: 1000px; margin: 0px auto; margin-top: 30px;  text-align: left;">
+		<span style="font-size: 25px; font-weight: bold; color:#709D1F"><span id="coach_teamname">서우르멘토리</span> 팀 일정</span><br>
+		<span style="color:#666666">일자를 선택하시면 그 날짜의 출석하기/평가하기/경기기록을 보실 수 있습니다!</span>
+
+	</div>
+
+
+	
+	<div style="background-color: white; width:  1000px;  margin: 0px auto;  position: relative; height: 400px;">
+	<div id="datePicker" class="ukk1" style="width: 300px; "  >
+	
+	
+	</div>
+	
+	<img alt="" src="a-manager/img_kochi/datepicker_dot.png"  style="position: absolute; top: 320px; left:50%; margin-left: -452px;">
+	 <div style="width: 10px; height:300px;"></div>
+	
+	<div id="coach-calenimg"style="">
+			
+			<img src="a-manager/img_kochi/datapicker_rollbook.png" style="left:-150px;"  >
+			<img src="a-manager/img_kochi/datapicker_train.png" style='left:3px'>
+			<img src="a-manager/img_kochi/datapicker_game.png" style="left: 158px;">
+			<p>
+			<span style="left:-140px;">불참석 명단</span>
+			<span style="left:6px;">미평가 명단</span>
+			<span style="left:152px;">경기기록 조회</span></p>
+	</div>
+	<div id="coach-calendartext">
+		<div class="date_result">날짜에 마우스를 갖다 대시면 해당 날자의 간략한 경기기록을 보실수 있습니다</div>
+		<div  class="date_evalution">날짜에 마우스를 갖다 대시면 출석은 하였으나 평가가 되지않은 선수가 나타납니다</div>
+		<div class="date_check">날짜에 마우스를 갖다 대시면 불참석자가 나타납니다</div>
+	</div>
+	
+<!-- 	<div class="date_check" style="position:absolute;  padding:28px 10px 10px; padding-left:10px; background-image:url(a-manager/img_kochi/datapicker_rollboook.png); background-repeat:no-repeat;  background-size:100% 100%;  border-radius:15px; margin-top: 5px; width: 300px; height: 150px; top:300px; left:60%; "></div> -->
+	
+	
+<!-- 	<div class="date_evalution" style="position:absolute;  padding:28px 10px 10px; padding-left:10px; background-image:url(a-manager/img_kochi/datapicker_train.png); background-repeat:no-repeat;  background-size:100% 100%;  border-radius:15px; margin-top: 5px; width: 300px; height: 150px; top:300px; left:60%; "></div> -->
+	
+	
+<!-- 	<div class="date_result" style="position:absolute;  padding:28px 10px 10px; padding-left:10px; background-image:url(a-manager/img_kochi/datapicker_game.png); background-repeat:no-repeat;  background-size:100% 100%;  border-radius:15px; margin-top: 5px; width: 300px; height: 150px; top:300px; left:60%; "></div> -->
+	</div>
+	</section>
+
+<!-- 출석 -->
+<section id ="roll_Page" class="tableForm attendance" style="width: 1000px; margin: 0px auto;  background-color: white; border-top: 3px solid #709c20;">
+	
+
+           	 <h3 id="date-2013-08-11" class="dtstart akk2" title="2013-08-11" >
+    			<b class="eval_month">
+    				<span class="eval_m"></span>
+    				<span class="eval_d"></span>
+    			</b>
+    			<b class="eval_year"><span class="eval_y"></span></b>
+   			 </h3>
+   				<span class="evak_team span_tname" style="top: 20px; position: relative; left:10px; font-size: 28px;"></span>
+		<br>
+		<button class="allbtn" id='btnRollBookSend' >전송</button>
+		<ul class="checklist" style="min-height:300px;  width: 675px; position: relative; left:300px; margin-top: 18px;">
+				
+		</ul>
+		<br><br>
+		
+		<br><br>
+		<div>
+	
+	
+		
+		</div>
+	<div style="width: 1000px;  height: 10px; clear: left;"></div>
+</section>            
+
+<!-- 훈련 -->
+<section id="train_Page" style="width: 1000px; margin: 0px auto;  background-color: white; border-top: 3px solid #709c20;">
+	<h3 id="date-2013-08-11" class="dtstart akk2" title="2013-08-11">
+		<b class="eval_month"> 
+			<span class="eval_m"></span> 
+			<span class="eval_d"></span>
+		</b> 
+		
+		<b class="eval_year">
+		<span class="eval_y"></span>
+		</b>
+	</h3>
+	
+	<span class="evak_team span_tname" style="top: 20px; position: relative; left:10px; font-size: 28px;"></span>
+	<br>
+	<button class="allbtn" id='btnEvalUpdate'>전송</button>
+	
+	<table id='tables' style="width: 675px; position: relative; left:300px; margin-top: 20px;" class="redTable">
+		<tr>
+			<td>학생이름</td>
+			<td>평가종류</td>
+			<td>평가항목</td>
+			<td>매우낮음</td>
+			<td>낮음</td>
+			<td>보통</td>
+			<td>높음</td>
+			<td>매우높음</td>
+		</tr>
+	</table>
+</section>
+
+
+<!-- 경기기록 -->
+
+<section id="game_page" style="width: 1000px; margin: 0px auto;  background-color: white; border-top: 3px solid #709c20;">
+	<div id="content" class="container">
+    <div id="team container" style="text-align: left;">
+            <div id="main" style="width: 1000px; background-color: #fff;">
+                <p style='color:red; padding: 20px'class="note"><img src='a-manager/warning.png'>주의: 신중하게 기록하여주세요</p>
+				
+				 <span style="font-size: 17px; font-style: '돋음'; font-weight: bold; color: #535353 ">경기기록</span>
+				 
+                <div class="c1" style="width: 950px; margin: 0px auto">
+                    <input id="gtitle" type="text" placeholder="경기명">
+                    <input id="gplace" type="text" placeholder="경기장소">
+                    
+                    <div id="contacts">
+                       <div style="width: 1000px">	
+	<table id="gameTable">
+
+		<tr>
+			<th style="width: 10px">
+			팀이름
+			</th>
+			<th>
+			<span class="inning">1</span>
+			</th>
+			<th>
+			<span class="inning">2</span>
+			</th>
+			<th>
+			<span class="inning">3</span>
+			</th>
+			<th>
+			<span class="inning">4</span>
+			</th>
+			<th>
+			<span class="inning">5</span>
+			</th>
+			<th>
+			<span class="inning">6</span>
+			</th>
+			<th>
+			<span class="inning">7</span>
+			</th>
+			<th>
+			<span class="inning">8</span>
+			</th>
+			<th>
+			<span class="inning">9</span>
+			</th>
+			<th>
+			점수
+			</th>
+			<th>
+			h
+			</th>
+			<th>
+			e
+			</th>
+			<th>
+			b
+			</th>			
+		</tr>
+		<tr>
+			
+			<th>
+			<input id="gstart" type="text">
+			</th>
+			<th>
+			<input placeholder="X" class="startScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="startScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="startScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="startScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="startScore"  type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="startScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="startScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="startScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="startScore" type="number">
+			</th>
+			<th>
+			<input id="totalStartScore" value="0" type="text" readonly="readonly">
+			</th>
+			<th>
+				<input id="gsh" type="number">
+			</th>
+			<th>
+				<input  id="gse" type="number">
+			</th>
+			<th>
+				<input  id="gsb" type="number">
+			</th>			
+		</tr>
+	
+			<tr>
+			
+			<th>
+			<input id="gend" type="text">
+			</th>
+			<th>
+			<input placeholder="X" class="endScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="endScore" type="number">
+			</th>
+			<th>
+				<input  placeholder="X" class="endScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X"class="endScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X"class="endScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="endScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="endScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="endScore" type="number">
+			</th>
+			<th>
+				<input placeholder="X" class="endScore" type="number">
+			</th>
+			<th>
+				<input id="totalEndScore" value="0" type="text" readonly="readonly">
+			</th>
+			<th>
+				<input id="geh" type="number">
+			</th>
+			<th>
+				<input id="gee" type="number">
+			</th>
+			<th>
+				<input id="geb" type="number">
+			</th>			
+		</tr>
+		
+	</table>
+    </div>
+                    <span style="font-size: 17px; font-style: '돋음'; font-weight: bold;  color: #535353">상세내용</span>
+                    <textarea id="gdet" rows="10" cols="110" style="width: 98%"></textarea>
+                    <span style="font-size: 17px; font-style: '돋음'; font-weight: bold;color: #535353 ">기타사항</span>
+                    <textarea id="getc" rows="10" cols="110" style="width: 98%"></textarea>
+                    </div>
+                </div>
+                <button id="btnUpdateGame" class="allbtn" style="margin-left: 45%;">경기기록 전송</button>
+        </div>
+        </div>
+
+    </div> <!-- end of #container -->
+	
+</section>

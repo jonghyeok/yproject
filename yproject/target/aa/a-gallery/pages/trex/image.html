@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>이미지 첨부</title> 
+	<link rel="stylesheet" href="../../css/popup.css" type="text/css" />
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="header">
+		<h1>사진 첨부</h1>
+	</div>	
+	<div class="body">
+		<form id="serverInfoForm" name="serverInfoForm" 
+			method="post" enctype="multipart/form-data" 
+			action="upload.do">
+			<input type="file" id='image' name="image1[]" onchange="readURL(this);" multiple></input>
+			
+			<input type="button" id="photoUpload" value="업로드" /> 미리 보기 최대 3장
+			
+			<div id='preViewDiv'>
+				<img class='preViewImage0' style='width: 200px; height: 200px;'>
+				<img class='preViewImage1' style='width: 200px; height: 200px;'>
+				<img class='preViewImage2' style='width: 200px; height: 200px;'>
+			</div>
+		</form>
+	</div>
+	
+	<div class="footer">
+		<p><a href="#" onclick="closeWindow();" title="닫기" class="close">닫기</a></p>
+		<ul>
+			<li class="submit"><a href="#" id='photoInContent' title="등록" class="btnlink">등록</a> </li>
+			<li class="cancel"><a href="#" onclick="closeWindow();" title="취소" class="btnlink">취소</a></li>
+		</ul>
+	</div>
+</div>
+	
+	<!-- JS -->
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="../../../js/jquery.form.js"></script>
+	<script src="../../js/popup.js"></script>
+	<script src="../../gallery.js"></script>
+	<script src="image.js"></script>
+</body>
+
+<script>
+<!-- 이미지 미리보기 js -->
+function readURL(input) {
+	for(var i = 0; i < input.files.length; i++){
+		
+// 	$('.preViewImage'+i).remove();
+// 	$('<img>').addClass('preViewImage' + i).css('width','200px').css('height','200px').appendTo('#preViewDiv');
+
+			if (input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('.preViewImage'+0).attr('src', e.target.result);
+				};
+				reader.readAsDataURL(input.files[0]);
+			}
+			if (input.files && input.files[1]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('.preViewImage'+1).attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[1]);
+			}
+			if (input.files && input.files[2]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('.preViewImage'+2).attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[2]);
+			}
+		}
+}
+</script>
+</html>
