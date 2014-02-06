@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.TeamDao">
+	
+	
+	<update id="tphotoadd" parameterType="Team">
+		update TORY_TEAM SET
+		TPHOTO = #{tphoto}
+		where TNO = #{tno}
+	</update>
+	
+	
+	<update id="tkphotoadd" parameterType="Team">
+		update TORY_TEAM SET
+		TKPHOTO = #{tkphoto}
+		where TNO = #{tno}
+	</update>
+	
+	
+	<insert id="teamAdd" parameterType="Team"
+		useGeneratedKeys="true" keyProperty="tno">
+		insert into TORY_TEAM
+		(
+		TNAME,
+		TINFO,
+		TKNAME,
+		TKINFO,
+		TKPHOTO,
+		TPHOTO,
+		TCOORDX,
+		TCOORDY,
+		TADDRESS
+		)
+		values(
+		#{tname},
+		#{tinfo},
+		#{tkname},
+		#{tkinfo},
+		#{tkphoto},
+		#{tphoto},
+		#{tcoordx},
+		#{tcoordy},
+		#{taddress}
+		)
+	</insert>
+	
+	<update id="teamUpdate" parameterType="Team">
+		update TORY_TEAM SET
+		TNAME  = #{tname},
+		TKNAME = #{tkname},
+		TKINFO = #{tkinfo},
+		TINFO = #{tinfo},
+		TCOORDX = #{tcoordx},
+		TCOORDY = #{tcoordy},
+		TADDRESS = #{taddress},
+		TUSE = #{tuse}
+		where TNO = #{tno}
+	</update>
+		
+	<select id="teamView" 
+			parameterType="int" 
+			resultType="Team">
+	    select  
+	     TNO, 
+	     TNAME,
+	     TKNAME, 
+	     TKINFO, 
+	     TPHOTO,
+	     TINFO,
+	     TKPHOTO, 
+	     TCOORDX, 
+	     TCOORDY,
+	     TADDRESS,
+	     TUSE 
+		from TORY_TEAM
+		where TNO=#{tno}
+	</select>
+	
+	<update id="deleteteam" parameterType="Team">
+		update TORY_TEAM SET
+			TUSE=0
+			where TNO=#{tno}
+	</update>
+
+	<delete id="teamDelete" parameterType="Team">
+		update from TORY_TEAM SET
+		TUSE=0;
+		where TNO=#{tno}
+	</delete>
+	
+	<select id="teamList"  resultType="Team">
+	    select TNO,TNAME,TPHOTO,TUSE
+		from TORY_TEAM
+	</select>
+	
+	
+	<select id="getMyTeamName" parameterType="int" resultType="Team">
+	    select TNO , TNAME , TUSE
+		from TORY_TEAM
+		where TNO = #{TNO}
+	</select>
+	
+	
+	
+	<select id="teamCKPassword"  parameterType="Team" resultType="Team">
+	    select TNO from TORY_TEAM
+	    where tpassword=#{tpassword} and tno=#{tno};
+	</select>
+</mapper> 
+
+
+
+
+
+

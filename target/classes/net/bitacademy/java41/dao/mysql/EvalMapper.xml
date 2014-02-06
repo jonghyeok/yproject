@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.EvalDao">
+	
+		<insert id="evalationListAdd" parameterType="EvalList">
+			insert into TORY_EVALATION_LIST(ELTYPE,ELNAME,EUSE)
+			values(#{eltype},#{elname},1);
+		</insert>
+		
+	
+		<select id="evalationListGet" resultType="EvalList">
+		select * 
+		from TORY_EVALATION_LIST
+		where EUSE=1
+		order by eltype desc; 
+		</select>
+		
+		<update id="updateEvalationList"  parameterType="EvalList">
+		 UPDATE TORY_EVALATION_LIST SET
+		  ELNAME=#{elname}, EUSE=#{euse} , ELTYPE=#{eltype},EUSE=#{euse}
+		  WHERE ELNO=#{elno};   
+		</update>
+	
+	
+	<!-- 
+
+ -->
+</mapper> 
+
+
+
+
+
+

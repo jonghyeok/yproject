@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.TeamPropertyDao">
+	
+	
+		
+		<!-- 팀 활동일 검색 -->
+	
+		
+	<select id="teamADATElistget" parameterType="int" resultType="TeamProperty">
+	    select ANO,TNO,ADATE from TORY_ACTIVITY
+	    where tno=#{tno};
+	</select>
+	
+	
+	
+	<select id="teamADATEck" parameterType="TeamProperty" resultType="int">
+		select DATEDIFF(#{adate},now());	
+	</select>
+	
+	<!--  -->
+	
+	
+	
+	
+	<!-- 팀 정보 테이블 중 ano를 기반으로 있고 없고 테이블 찾기 -->
+	<select id="rollbookck" parameterType="TeamProperty" resultType="int">
+		select count(*) from TORY_ROLLBOOK
+		where ANO=#{ano};
+	</select>
+	
+	<select id="trainck" parameterType="TeamProperty" resultType="int">
+		select count(*) from TORY_TRAIN_RECORD
+		where ANO=#{ano};
+	</select>
+	
+	
+	<select id="gameck" parameterType="TeamProperty" resultType="int">
+		select count(*) from TORY_GAME
+		where ANO=#{ano};
+	</select>
+	
+	
+	<!-- ano가 0으로 줄땐 날아온 날짜를 바탕으로 생성 후 ano를 리턴 -->
+	<insert id="addFindano"  parameterType="TeamProperty"
+		useGeneratedKeys="true" keyProperty="ano">
+		insert into TORY_ACTIVITY(TNO,ADATE)
+		values(#{tno},#{adate});
+	</insert>
+	 
+	
+	
+	
+	
+		<!-- ano를 기반으로 activity에 있는 tno를 가져옴-->
+      <select id="findactivity" parameterType="TeamProperty" resultType="TeamProperty">
+      		select ANO,TNO,ADATE from TORY_ACTIVITY
+      		where ano=#{ano}
+      </select>	
+	
+	<!--tno와 학생정보를 바탕으로 출석부 기본 데이터로 생성 -->
+	<insert id="rollbookAdd" parameterType="TeamProperty">
+		insert into TORY_ROLLBOOK(ANO,TSNO)
+		values(#{ano},#{tsno});
+	</insert>
+	
+
+	<!--데이터를 기반으로 학생 출석 데이터를 찾음. --><!--, t2.TSPHOTO -->
+	<select id="load_roolbook" parameterType="TeamProperty" resultType="TeamProperty">
+	 	select t1.ANO,t1.TNO,t2.TSNAME,t2.TSBACKNO,t3.TSNO,t3.RSTATUS,t3.RETC,t2.TSPHOTO
+	 	from  TORY_ACTIVITY t1, TORY_TSTUDENT t2, TORY_ROLLBOOK t3
+	 	where t1.ANO=#{ano} and t1.ANO = t3.ANO and t2.TSNO = t3.TSNO
+	</select>
+	
+		<!--데이터를 기반으로 학생 출석 데이터를 찾음. 달력 hover할때 쓰임 -->
+	<select id="manager_load_roolbook" parameterType="TeamProperty" resultType="TeamProperty">
+	 	select distinct t2.TSNAME,t2.TSBACKNO,t3.TSNO,t3.RSTATUS
+	 	from  TORY_ACTIVITY t1, TORY_TSTUDENT t2, TORY_ROLLBOOK t3
+	 	where t1.ANO=#{ano} and t1.ANO = t3.ANO and t2.TSNO = t3.TSNO
+	</select>
+	
+	
+	<!-- 학생 출석 업데이트 -->
+	
+	<update id="rollbookUpate" parameterType="TeamProperty" >
+		update TORY_ROLLBOOK SET
+		RSTATUS=#{rstatus},
+		RETC=#{retc}
+		where ANO = #{ano} and TSNO=#{tsno}
+	</update>
+	
+	
+	<!-- 훈련기록 들고오기 -->
+	<select id="load_train"  parameterType="TeamProperty" resultType="TeamProperty">
+	select t1.ANO,t1.TCOUNT,t2.ENO,t2.TSNO,t2.TRETC,t3.ELNO,t3.ESCORE,t4.ELTYPE,t4.ELNAME,t5.TSNAME,t5.TSBACKNO,t6.RSTATUS,t5.TSPHOTO
+	from TORY_TRAIN t1, TORY_TRAIN_RECORD t2, TORY_EVALATION t3, TORY_EVALATION_LIST t4, TORY_TSTUDENT t5, TORY_ROLLBOOK t6
+	where t1.ANO=#{ano} and t2.ANO=#{ano} and t2.ENO=t3.ENO and t3.ELNO=t4.ELNO and t2.TSNO = t5.TSNO and t6.ANO= t2.ANO and t6.tsno= t5.TSNO
+	 order by TSBACKNO, ELTYPE , ELNO  ;
+	</select>
+	
+	
+	<!-- 훈련기록 들고오기 -->
+	<select id="manager_load_train"  parameterType="TeamProperty" resultType="TeamProperty">
+	select distinct t5.TSNAME,t5.TSBACKNO,t6.RSTATUS
+	from TORY_TRAIN t1, TORY_TRAIN_RECORD t2, TORY_EVALATION t3, TORY_EVALATION_LIST t4, TORY_TSTUDENT t5, TORY_ROLLBOOK t6
+	where t1.ANO=#{ano} and t2.ANO=#{ano} and t2.ENO=t3.ENO and t3.ELNO=t4.ELNO and t2.TSNO = t5.TSNO and t6.ANO= t2.ANO and t6.tsno= t5.TSNO and t6.rstatus=1 and t3.escore=0 
+	 order by TSBACKNO;
+	</select>
+	
+	
+	<select id="findNocheckStudent"   parameterType="TeamProperty" resultType="TeamProperty">
+	select Distinct t3.tsname
+	from TORY_TRAIN_RECORD t1, TORY_EVALATION t2, TORY_TSTUDENT t3
+	where t1.ANO=#{ano} and t1.ENO=t2.ENO and t1.TSNO=t3.TSNO and t2.ESCORE=0;
+	</select> 
+	
+	
+	
+	<!-- 훈련기록 카운드 들고오기 -->
+		<select id="tcountFind" parameterType="TeamProperty" resultType="int">
+		select count(*)
+		from TORY_ACTIVITY t1, TORY_TRAIN t2
+		where t1.ANO = t2.ANO and t1.tno=#{tno} order by TCOUNT desc  limit 1;
+		</select>
+	
+	<!--activity에서 tno값 들고오기 -->
+		<select id="tnoFindano" parameterType="TeamProperty" resultType="TeamProperty">
+		select ano,tno
+		from TORY_ACTIVITY
+		where ANO=#{ano}
+		</select>
+	
+	
+	<!-- 평가 업데이트 -->
+	<update id="trainUpdate" parameterType="TeamProperty" >
+		update TORY_EVALATION SET
+		ESCORE=#{escore}
+		where ENO = #{eno} and ELNO=#{elno}
+	</update>
+	
+	
+<!--ano로  활동일이랑 팀 이름, 훈련회차 들고오기 -->
+  <select id="akkFindano" parameterType="int" resultType="TeamProperty">
+  		select t1.ANO,t1.ADATE,t2.TNAME
+  		from TORY_ACTIVITY t1, TORY_TEAM t2
+  		where t1.ANO=#{ANO} and t1.TNO=t2.TNO
+  </select>
+
+
+
+<!-- 출석기록 갯수 가져오기 -->
+ <select id="getRollbookcount" parameterType="TeamProperty" resultType="int">
+ 	select count(*)
+ 	from TORY_ROLLBOOK
+ 	where ANO=#{ano} and rstatus=1
+ </select>
+
+	
+	<!-- 팀 내부 서비스 추가 매퍼(출석,팀활동,팀훈련,훈련기록,평가결과,평가활동,경기)부분 초기 생성부분 -->
+	 
+
+	<select id="findLastTcount"  parameterType="int" resultType="String">
+		select t2.tcount 
+		from TORY_ACTIVITY t1, TORY_TRAIN t2
+		where t1.tno=#{tno} and t1.ano=t2.ano order by TCOUNT desc limit 1;
+	</select>
+	
+	<insert id="trainAdd"  parameterType="TeamProperty">
+	
+		<choose>
+			<when test="tcount > 0">
+				insert into TORY_TRAIN(ANO,TCOUNT)
+				values(#{ano},#{tcount});
+			</when>
+			<otherwise>
+				insert into TORY_TRAIN(ANO)
+				values(#{ano});
+			</otherwise>
+		</choose>
+	</insert>
+	
+
+
+		<insert id="evalationAdd" parameterType="TeamProperty">
+			insert into TORY_EVALATION(ENO,ELNO,ESCORE)
+			values(#{eno},#{elno},#{escore});
+		</insert>
+	
+	
+		
+		<insert id="train_recordAdd" parameterType="TeamProperty"
+		useGeneratedKeys="true" keyProperty="eno">
+			insert into TORY_TRAIN_RECORD(ANO,TSNO)
+			values(#{ano},#{tsno});
+		</insert>
+		
+ 
+ <!-- ************경기부분 초기화 입력*********** -->
+ 
+	<insert id="gameAdd" parameterType="TeamProperty">
+			insert into TORY_GAME(ANO,GPLACE)
+			values(#{ano},#{gplace});
+	</insert>
+	
+</mapper> 
+
+
+
+
+
+

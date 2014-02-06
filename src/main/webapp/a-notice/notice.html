@@ -1,0 +1,131 @@
+
+<script src="js/jquery.form.js"></script>
+
+
+
+<section id="noticeList" style="width: 1000px; margin: 0px auto;" >
+
+<div style="width:900px; text-align: left;margin: 0px auto;  margin-top: 80px; ">
+<span style="font-size: 25px; font-weight: bold; color:#333333">공지사항</span>
+<span style="color:#666666">멘토리들의 활동 및 소식을 알려드립니다.</span>
+</div>
+
+<table style=" width: 900px; margin:0px auto; margin-top:3px; border-top: 1px solid #709d1f">
+    	<col width="10%" />
+			<col />
+			<col width="20%" />
+			<col width="10%" />
+    <thead>
+    <tr style="font-weight: bolder; font-size: 12px; background-color: #eaeaea; height: 40px">
+        <th>번호</th>        
+        <th>제목</th>
+        <th>작성일</th>
+        <th>조회수</th>
+
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <td>&nbsp;</td>        
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tfoot> 
+    <tbody id='tableContent'>
+					
+	</tbody>    
+</table>
+
+
+
+	<button id='btnWrite' class ="notice_btn" style="margin-left: 79%;">글쓰기</button>
+
+<!-- paging ~~~ -->
+	  <div  class="demos" style="width:580px;
+                padding:10px;
+               	margin-top:-15px;
+               	margin-left: 40%;
+              	margin-bottom: 70px; /*  background-color:#f7f7f7; */">
+              	<div id="notice_paging"></div>
+       			</div>
+</section>
+
+<!-- 내용글 입력 -->
+<section id='contentInsert' style="width: 760px; margin: 0px auto; ">
+	<div style="border-bottom: 2px solid #939393; margin-top: 80px;  padding-bottom:10px;">
+	<span style="border-bottom:3px solid #375500; padding-bottom:10px; float: left; margin-top: -21px; font-size: 25px; font-weight: bold;">공지사항입력</span>
+	</div>
+	<form name="serverInfoForm" id="serverInfoForm" method='post' action="upload.do" enctype="multipart/form-data">
+	<table style="margin-top: 45px;">
+	<tr>
+	<th>제목</th>
+	<td><input id="btitle1" type="text"  required></td>
+	</tr>
+	<tr>
+	<th>파일</th>
+	<td><input id='image' name='image1' type='file' /></td>
+	</tr>
+	<tr>
+	<th>내용</th>
+	<td><textarea id="bcontent1"  required></textarea></td>
+	</tr>
+	</table>
+	<div style="border-bottom: 2px solid #939393; margin-top: 20px;  padding-bottom:10px;">
+	</div>
+
+
+
+<!-- 		제목  <br>  -->
+<!-- 		파일  -->
+<!-- 		<p class="contentViewP" style="margin-top: 20px;">첨부파일:<span id="fileDown_url"></span> </p> -->
+<!-- 		내용 -->
+<!-- 		<br>  -->
+ 		<input id="btnBoAdd" type="button" value='등록' style="margin-left: 556px;"> 
+		<input id="btnBoUpdate" type="button" value='변경'  style="margin-left: 556px;">
+	<input id="btnBoReturn" type="button" value='이전'>
+	</form>
+</section>
+
+
+
+<section id='contentViews'>
+<div style="border-bottom: 2px solid #939393; margin-top: 80px;  padding-bottom:10px;">
+	<span style="border-bottom:3px solid #375500; padding-bottom:10px; float: left; margin-top: -21px; font-size: 25px; font-weight: bold;">공지사항</span>
+	</div>
+	
+	<table style="margin-top: 45px;border-bottom: 1px solid #afafaf;">
+	<tr>
+	<th style=" border-top: 1px solid #afafaf; ">글번호</th>
+	<td style=" border-top: 1px solid #afafaf; "><span id="bno2"></span></td>
+	</tr>
+	<tr>
+	<th>제목</th>
+	<td><span id="btitle2"></span></td>
+	</tr>
+	<tr>
+	<th>내용</th>
+	<td><div id="bcontent2"></div></td>
+	</tr>
+	<tr>
+	<th  style="border-bottom: 1px solid #afafaf;">첨부파일</th>
+	<td style="border-bottom: 1px solid #afafaf;"><span id="fileDown_url2"></span></td>
+	</tr>
+	</table>
+	<div style="border-bottom: 2px solid #939393; margin-top: 20px;  padding-bottom:10px;">
+	</div>
+	
+	
+<!-- 	<p class="contentViewP">글번호: </p> -->
+<!-- 	<p class="contentViewP">제목: </p> -->
+<!-- 	<p class="contentViewP" style="margin: 0px;">내용:</p><br> -->
+<!-- 	<div id="bcontent2"></div> -->
+<!-- 	<p class="contentViewP" style="margin-top: 20px;">첨부파일:</p> -->
+<!-- 	<br> -->
+	<p>
+	<button id="btnUpdate" class="noticebtn" style="margin-left: 50%">수정</button>
+	<button id="btnDelete"  class="noticebtn" >삭제</button>
+	<button id="confirm" class="noticebtn" >확인</button>
+	</p>
+</section>
+

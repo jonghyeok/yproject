@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.TeamGameDao">
+	
+
+   	<insert id="addDefaultData"  parameterType="Game" useGeneratedKeys="true" keyProperty="gno">
+	    insert into TORY_GAME(ANO)
+	    values(#{ano})
+	</insert>
+	
+	<select id="loaddata" parameterType="Game" resultType="Game">
+	 SELECT * FROM TORY_GAME t1, TORY_ACTIVITY t2
+	where t1.ano=#{ano} and t1.ano=t2.ano;
+	</select>
+
+
+	<select id="loaddata_point" parameterType="Game" resultType="GamePoint">
+	select GNO,GPINNING,GPSPOINT,GPEPOINT
+	from TORY_GAME_POINT
+	where GNO=#{gno}
+	</select>
+		
+	<update id="updatedata"  parameterType="Game" >
+		update TORY_GAME SET
+		GPLACE = #{gplace},
+		GSTART = #{gstart},
+		GTITLE = #{gtitle},
+		GEND = #{gend},
+		GSH = #{gsh},
+		GEH = #{geh},
+		GSE = #{gse},
+		GEE = #{gee},
+		GSB = #{gsb},
+		GEB = #{geb},
+		GDET = #{gdet},
+		GETC = #{getc}
+		where GNO = #{gno}
+	</update>
+
+
+   	<insert id="updatedata_point"  parameterType="GamePoint">
+	    insert into TORY_GAME_POINT(GNO,GPINNING,GPSPOINT,GPEPOINT)
+	    values(#{gno},#{gpinning},#{gpspoint},#{gpepoint})
+	</insert>
+	
+	
+	<delete id="delete_point" parameterType="GamePoint">
+		delete from TORY_GAME_POINT
+		where GNO=#{gno}
+	</delete>
+
+	<select id="serchGameTotal_gps"  parameterType="TeamProperty" resultType="TeamProperty"  >
+		select t1.gstart, t1.gend, sum(t2.gpspoint) as gpstotal
+		from TORY_GAME t1, TORY_GAME_POINT t2
+		where t1.ano=#{ano} and t1.gno=t2.gno and not t2.gpspoint=999
+		group by t2.gno;
+	</select>
+	
+	<select id="serchGameTotal_gpe"  parameterType="TeamProperty" resultType="TeamProperty"  >
+		select t1.gstart, t1.gend, sum(t2.gpepoint) as gpetotal
+		from TORY_GAME t1, TORY_GAME_POINT t2
+		where t1.ano=#{ano} and t1.gno=t2.gno and not gpepoint=999
+		group by t2.gno;
+	</select>
+	
+</mapper> 
+
+
+
+
+
+

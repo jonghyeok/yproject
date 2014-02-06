@@ -1,0 +1,158 @@
+
+.tableForm #content{
+	margin: 20px 150px 10px 150px;
+}
+
+.tableForm table,td,th {
+	vertical-align: middle;
+}
+
+.tableForm th {
+	color: #757475;
+	line-height:20px;
+	min-height: 20px;
+	text-align: center;
+	padding: 10px;
+	font-weight: bold;
+}
+
+.tableForm section {
+	font-family: Calibri, 'Lucida Grande', 'Lucida Sans Unicode', Helvetica,
+		Tahoma, Arial, san-serif;
+	font-size: 14px;
+	line-height: 1.8em;
+}
+
+/*table*/
+.tableForm table {
+	margin: 1em 0 30px;
+	border: 1px solid #e0e0e0;
+}
+
+.tableForm table td, .tableForm table th {
+	padding: 10px 20px;
+	text-align: center;
+	color: #757475;
+}
+
+.tableForm .short-table th {
+	background: #fff;
+	border-bottom: 1px solid #e0e0e0;
+	text-align: center;
+	height: 40px;
+	color: #636262;
+	font-weight: bold;
+}
+
+.tableForm .short-table th.features {
+	border-bottom: none;
+	height: 40px;
+	line-height: 40px;
+	background-color: transparent;
+	color: #636262;
+}
+
+
+.tableForm tr:nth-child(2n+1) {
+	background-color: #f6f6f6;
+}
+
+
+/*red table*/
+.tableForm .short-table.red thead th {
+	c
+	color: #fff;
+}
+
+.tableForm .short-table table {
+	border: 1px solid #c21200;
+}
+
+
+
+.memberSearch #content{
+	margin: 20px 150px 10px 150px;
+}
+
+.memberSearch table,td,th {
+	vertical-align: middle;
+}
+
+.memberSearch th {
+	color: #757475;
+	line-height:20px;
+	min-height: 20px;
+	text-align: center;
+	padding: 10px;
+	font-weight: bold;
+}
+
+.memberSearch section {
+	font-family: Calibri, 'Lucida Grande', 'Lucida Sans Unicode', Helvetica,
+		Tahoma, Arial, san-serif;
+	font-size: 14px;
+	line-height: 1.8em;
+}
+
+/*table*/
+.memberSearch table {
+	margin: 1em 0 30px;
+	border: 1px solid #e0e0e0;
+}
+
+.memberSearch table td, .memberSearch table th {
+	padding: 10px 20px;
+	text-align: center;
+	color: #757475;
+}
+
+.memberSearch .short-table th {
+	background: #fff;
+	border-bottom: 1px solid #e0e0e0;
+	text-align: center;
+	height: 40px;
+	color: #636262;
+	font-weight: bold;
+}
+
+.memberSearch .short-table th.features {
+	border-bottom: none;
+	height: 40px;
+	line-height: 40px;
+	background-color: transparent;
+	color: #636262;
+}
+
+.memberSearch tr:nth-child(2n+1) {
+	background-color: #f6f6f6;
+}
+/*red table*/
+.memberSearch .short-table.red thead th {
+	background: #fff;
+	color: #636262;
+}
+
+.memberSearch .short-table table {
+	border: 1px solid #c21200;
+}
+
+/* /*grey*/ */
+/* .short-table.grey thead th { */
+/* 	background: #4b4a4a; */
+/* 	color: #fff; */
+/* } */
+
+/* .short-table.grey table { */
+/* 	border: 1px solid #4b4a4a; */
+/* } */
+/* /*blue*/ */
+/* .short-table.blue thead th { */
+/* 	background: #07558c; */
+/* 	color: #fff; */
+/* } */
+
+/* .short-table.blue table { */
+/* 	border: 1px solid #07558c; */
+/* } */
+
+

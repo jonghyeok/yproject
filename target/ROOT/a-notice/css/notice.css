@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+
+
+.notice_btn{
+	background-color: #375500;
+	width: 100px;
+}
+.titleNumber{
+	border-bottom: 1px solid #eaeaea;
+	border-top: 1px solid #eaeaea;
+	height: 30px;
+}
+#tableContent tr{
+	background: white;
+}
+#tableContent tr:hover{
+	
+	background-color:rgba(224, 248, 223, 0.64);
+/* 	text-decoration: underline; */
+/* 	color: #e5e5e5; */
+	color: black;
+}
+#contentInsert{
+	width: 800px; margin: 0px auto;
+	text-align: left;
+	padding: 20px;
+}
+#contentViews{
+	width: 760px; margin: 0px auto;
+	text-align: left;
+	padding: 20px;
+}
+
+
+
+input#btnBoAdd, .noticebtn, #btnBoUpdate,#btnBoReturn{
+padding:0px;
+background-color: #375500;
+	width: 100px;
+	text-align:none;
+height: 30px;
+margin-top: 15px;
+border: 0;
+font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+font-size: 13px;
+color: #fff;
+
+}
+
+
+#btitle1,#image,#bcontent1{
+	border: 2px solid #D6D6D6;
+	width: 400px;
+	padding-left:20px;
+
+}
+#btitle1:focus,#image:focus,#bcontent1:focus{
+	border: 2px solid #FFA45F;
+}
+#bcontent1{
+	width: 600px;
+	height: 300px;
+	margin-top:20px;
+}
+
+#contentInsert th{
+	width: 50px;
+	text-align: center;
+}
+#contentViews th{
+	width: 79px;
+	text-align: center;
+	border-bottom: 1px solid #eaeaea;
+	border-top: 1px solid #eaeaea;
+}
+#contentViews td{
+	background-color: #fff;
+	border-bottom: 1px solid #eaeaea;
+	border-top: 1px solid #eaeaea;
+}
+.noticelabel{
+	margin-top: 10px;
+}
+#bcontent2{
+	width: 600px;
+	min-height: 300px;
+	padding: 30px;
+}
+.contentViewP{
+	font-size: 120%;
+	font-weight: bolder;;
+}

@@ -1,0 +1,42 @@
+#contentView, #photoListForm, #photoListForm, #photoAddForm{
+	width: 1000px;
+	margin: 0px auto;
+}
+.galleryTitle{
+/* 	border-bottom: 1px solid #939393; */
+	margin-left: 27px;
+	margin-top: 50px;
+	text-align: left;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+.galleryTitleSpan1{
+/* 	border-bottom: 2px solid #375500; */
+	font-size: 25px;
+	font-weight: bold;
+	color: #333333;
+}
+.galleryTitleSpan2{
+	
+}
+#gallerySearch{
+	border: 1px solid #f1f1f1;
+}
+#gallerySearch:hover{
+	border: 1px solid black;
+}
+.galleryTitle #gallerySearch:focus{
+	border: 1px solid black;
+}
+
+.searchPhoto{
+	width: 215px;
+}
+
+.photoClick {
+	border-bottom: 2px solid #709d1f !important;
+}
+
+.photoClick h4{
+	width: 215px !important;
+}

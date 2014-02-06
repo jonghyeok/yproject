@@ -1,0 +1,563 @@
+
+<div id="sidebar" style="width: 1000px; margin: 30px auto 0px; min-height: 70px;">
+
+<ul id="sidebarUl" style="min-height: 70px;">
+		<li id="levelChange">
+		<span>
+			등급관리
+		</span>
+		</li>
+		<li id="c-sponsor">
+		<span>
+			후원관리
+		</span>
+		</li>
+		<li id="menu_teamManagement">
+		<span>
+			팀관리
+		</span>
+		</li>		
+		<li id="icon_teamAdd">
+		<span>
+			팀추가
+		</span>
+		</li>
+		<li id="icon_Eval">
+		<span>
+			항목변경
+		</span>
+		</li> 		 
+	</ul>
+
+
+<!-- 	<ul id="sidebarUl"> -->
+<!-- 		<li class="current" id="levelChange" ><a href="#"><i -->
+<!-- 				class="icon-calendar" ></i> -->
+<!-- 				<span >등급관리</span> </a></li> -->
+<!-- 		<li id="c-sponsor"><a href="#"><i  class="icon-book"></i> -->
+<!-- 				<span >후원관리</span> </a></li> -->
+<!-- 		<li id="menu_teamManagement"><a href="#"><i class="icon-book"></i> -->
+<!-- 				<span>팀관리</span> </a></li> -->
+<!-- 		<li id="icon_teamAdd"><a href="#"><i class="icon-plus"></i> -->
+<!-- 		<span>팀추가</span> </a></li> -->
+<!-- 		<li id="icon_Eval"><a href="#"><i class="icon-cog"></i> -->
+<!-- 		<span>항목변경</span> </a></li> -->
+<!-- 	</ul> -->
+</div>
+
+<section id ="frepare" style="width: 1000px; height:600px; margin: 0px auto;  background-color: white; border-top: 3px solid #709c20;">
+	
+	<div style="margin-top: 200px;">
+		<p style="font-size: 14px;">상단 메뉴를 선택하여 주세요</p>
+	</div>
+</section>
+
+
+<!-- ADMIN - TEAM  MEMBER LEVEL CHANGE -->
+<section class="tableForm admin_size">
+		
+		<div style="margin: 15px; margin-bottom: 10px; margin-left: 445px;">
+			이름으로 검색<input type='text' id='txtFilter' onKeyPress= "submitEvent();" > 	
+			<input id="admin_search_btn" type="button" value="검색" style=" position: absolute; width: 60px; height: 35px; background-color: #565656; color: #f5f5f5; border: 1px solid #f1f1f1;">	
+			<span style ='margin-left: -25px;'>
+			<a id='SearchCancel' href='#'>
+				<img style="width : 20px; height: 20px;" src="a-admin/CancelIcon.png">
+			</a>
+		</span>
+		</div>
+			
+	<div>
+		<table id='table' style="width: 900px; margin: 0px auto;" cellpadding="0" cellspacing="0"
+			class="short-table red">
+
+			
+			<thead>
+				<tr>
+
+					<th style="width: 10%; background-color: #eaeaea;">Name</th>
+					<th style="width: 10%; background-color: #eaeaea;">ID</th>
+					<th style="width: 10%; background-color: #eaeaea;">E-mail</th>
+					<th style="width: 10%; background-color: #eaeaea;">level</th>
+					<th style="width: 5%; background-color: #eaeaea;">check</th>
+				</tr>
+			</thead>
+
+
+
+			<!-- tr clone -->
+
+			<tbody id='tableContent'>
+			<tr class="tmTr" style="display: none;">
+				<td>name</td>
+				<td>id</td>
+				<td>email</td>
+				<td><select id="tmsellv">
+						<option id="sel0" value="0">일반회원</option>
+						<option id="sel1" value="1">후원자</option>
+						<option id="sel2" value="2">코치</option>
+						<option id="sel3" value="3">자원봉사자</option>
+						<option id="sel9" value="9">관리자</option>
+				</select>
+				<select id="sel_sppc" class="sel_sppc" style="display: none;">
+						<option id="sel_sppc0" value="0">개인</option>
+						<option id="sel_sppc1" value="1">기업</option>
+				</select>
+				
+				<input  class="input_sppcname" type="text" placeholder="예금주를 입력하세요.." style="display: none;">
+				<select class="tmlist" style="display : none">
+
+				</select></td>
+				
+				
+				
+				
+<td><span class="adminlevelcheck" style="display: none; width: 50px;"><i class="icon-ok"></i></span>
+					<input type="checkbox" class="tmcheck" hidden="true">
+					</td>
+
+				
+			
+			</tr>
+			</tbody>
+		</table>
+
+
+	</div>
+       	<button class="btn-Change allbtn" id='btnLevelChange' style="margin-left: 850px; margin-top: 5px;">변경</button>
+	  <div  class="demo" style="width:580px;
+                padding:0px;
+               	margin-top:-8px;
+               	margin-left: 40%;
+               	border: 1px solid #fff;
+               /*  background-color:#f7f7f7; */">
+                <div id="paging" style="margin-top: -15px">                   
+                </div>
+       			</div>
+       	
+</section>
+
+<!-- Team LIST -->
+
+<section class='teamManagement admin_size'>
+
+	<div id="team_del" title="팀 삭제 확인">
+		<h1>* 주의 *</h1>
+		<article>
+			해당팀의 정보가 삭제 됩니다. <br>삭제를 원하시면 해당 팀의 비밀번호를 입력하세요!
+		</article>
+		<form action="#">
+			<input type="password" id="btn_team_pwdel" required placeholder="password">
+			<button class="allbtn" id="btn_team_pw_send">팀 삭제!</button>
+		</form>
+	</div>
+
+
+	<div class="container" style="width: auto;">
+		<div class="row team_list" style="margin-left: -3px;"></div>
+	</div>
+
+	<div class="team container">
+
+	</div>
+
+
+</section>
+
+<!-- 멤버 & 학생 관리  -->
+<section id='manager_memberAdd' class="admin_size" style="width:1000px; height: 1300px;">
+ 	<div style=" width:1000px;  text-align: left;margin-top: 30px;"> 
+	<span style="  margin-left: 30px; color:#6f9d1f;font-size: 24px; font-style:'고딕'; font-weight: bold;">서울멘토리 회원 추가</span>
+	<button  class="admin_other_team" style="color: #fff; float:right; margin:0px 588px 0px 0px; height:24px; background-color: #d78e0e; font-size: 10px">다른 팀 관리하기&nbsp;▶</button>
+	<br>
+	<P style="margin-left: 30px;">멘토리 팀의 회원을 삽입 및 업데이트하는 MemberInfo</P>
+ 	</div> 
+
+<!-- 	<div class="contact-us container"> -->
+	<div>
+<!-- 		<div class="row" style="width: 1000px"> -->
+	<div style="width:1000px; background-color: white;">
+			<div id="memberlist_div" style="width: 500px" class="contact-form span7">
+			</div>
+			<div class="contact-address span5" style="width: 400px;">
+				<form id="student_form" name="student_form" style="text-align: left;"
+					enctype="multipart/form-data">
+					<h4>*필수 입력 사항입니다.</h4>
+					<br>
+					
+					<span class="abab">
+					 <input  class="skinny" id='student_name' type="text"
+						placeholder="" style="width: 400px"><label>*이름</label>
+					</span><br>
+					<span class="abab">
+					 <input  class="skinny" id='student_phone' type="text"
+						placeholder="" style="width: 400px"><label>*휴대폰 번호</label>
+					</span>
+					<span class="abab">
+					 <input  class="skinny" id='student_email' type="text"
+						placeholder="" style="width: 400px"><label>*이메일</label>
+					</span>
+					<span class="abab">
+					 <input  class="skinny" id='student_ts_birth' type="date"
+						placeholder="" style="width: 400px"><label>*생년월일</label>
+					</span>
+					
+					<input id="student_tsno" type="hidden">
+					<input id="student_tno" type="hidden">
+					
+					<span class="abab">
+					 <input  class="skinny" id='student_t_name' type="text"
+						placeholder="" style="width: 400px" readonly><label>팀 이름</label>
+					</span>
+					
+					<span class="abab">
+					 <input  class="skinny" id='student_ts_backno' type="text"
+						placeholder="" style="width: 400px"><label>등번호No.</label>
+					</span>
+					
+					<span class="abab">
+					 <input  class="skinny" id='student_ts_grad' type="date"
+						placeholder="" style="width: 400px"><label>졸업일</label> 
+					</span>
+					
+					<span class="abab">
+					 <input  class="skinny" id='student_ts_hobby' type="text"
+						placeholder="" style="width: 400px"><label>취미</label> 
+					</span>
+					
+					<span class="abab">
+					 <input  class="skinny" id='student_ts_prophone' type="text"
+						placeholder="" style="width: 400px"><label>보호자 연락처</label>
+					</span>
+					<label style=" font-weight: 700; color:black;">가족관계</label> 
+					<select id="family_select_one"
+						style="width: auto;">
+						<option value="0" selected>무</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>남 <select id="family_select_two" style="width: auto;">
+						<option value="0">무</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>녀 <select id="family_select_three" style="width: auto;">
+						<option value="0">무</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>째 
+					
+					
+					<span>
+					<label style=" font-weight: 700; color:black;">기타사항</label>
+					<textarea id="student_ts_other" placeholder="etc.." style="background-color: #efefef; width:100%; height:150px; border: 0px;">
+					
+					</textarea>
+					</span>
+					<label style=" font-weight: 700; color:black;">사진</label> <input id='ts_image' name='ts_image' type='file'
+						onchange="readURLD(this);" /> 
+						<img class='tsImg' style="width: 400px; height: 300px">
+
+				<button id="btn_New_Student_Add" class="allbtn">학생추가</button>
+				<button id="btn_Student_Update" class="allbtn">정보변경</button>
+				<span id="btn_Student_Delete" class="allbtn" style="padding: 9px 46px; position: relative; top: 8px; color:#fff; cursor: pointer;">삭제</span>
+				<span id="btn_Student_Reset" class="allbtn"  style="padding: 9px 46px; position: relative; top: 8px; color:#fff; cursor: pointer;">취소</span>
+				</form>
+			
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+
+<!-- TEAM ADD & UPDATE -->
+<section class='teamAdd admin_size' style="height: 716px;">
+
+	<div id="team_up_div" style=" width:1000px;  text-align: left;margin-top: 30px;"> 
+	<span style="  margin-left: 30px; color:#6f9d1f;font-size: 24px; font-style:'고딕'; font-weight: bold;">Update Team</span>
+	<button class="admin_other_team" style="color: #fff; float:right; margin:0px 676px 0px 0px; height:24px; background-color: #d78e0e; font-size: 10px">다른 팀 관리하기&nbsp;▶</button>
+	<br>
+	<P style="margin-left: 30px;">멘토리 팀 정보를 변경합니다.</P>
+ 	</div> 
+ 	
+ 	
+ 	<div id="team_add_div" style=" width:1000px;  text-align: left;margin-top: 30px;"> 
+	<span style="  margin-left: 30px; color:#6f9d1f;font-size: 24px; font-style:'고딕'; font-weight: bold;">ADD Team</span>
+	<br>
+	<P style="margin-left: 30px;">멘토리 팀을 추가합니다.</P>
+ 	</div>
+ 	
+
+	<div class="contact-us container" style="z-index: +50">
+
+
+		<div id="admin_map_address" style="  text-align: left; " title="주소선택"></div>
+
+		<form id="team_form_a" name="team_form_a" action="upload.do"
+			enctype="multipart/form-data">
+			<label>팀 사진</label> <input id='team_image_a' name='team_image'
+				type='file' onchange="readURL(this);" />
+				 <img class='teamImg' style="width: 300px; height: 300px"> <br>
+				
+				  <input type="button" class="grabutton" style="width: 130px; height: 30px; border: 0;color: white;" id="btnTeamPhotoAdd" value="사진올리기">
+				
+		</form>
+
+		<form id="tk_form_a" name="tk_form_a" action="upload.do"
+			enctype="multipart/form-data">
+			<label>감독사진 사진</label> <input id='tk_image_a' style="cursor: pointer;" name='tk_image_a'
+				type='file' onchange="readURLS(this);" /> 
+				<img class='tkImg' style="width: 300px; height: 300px"> 
+				<br> 
+				<form>
+				<input type="button" class="grabutton" style="margin-top: 10px; width: 130px; height: 30px; border: 0; color: white;" id="btnTkPhotoAdd" value="사진올리기">
+				</form>
+		</form>
+
+			<div class="row">
+
+					<form id="team_form" name="team_form" action="upload.do" enctype="multipart/form-data">
+	<!-- progressbar -->
+<!-- 	<ul id="progressbar"> -->
+<!-- 		<li class="admin_pb">One Setup</li> -->
+<!-- 		<li>Two Setup</li> -->
+<!-- 		<li>Three Setup</li> -->
+<!-- 	</ul> -->
+	<!-- fieldsets -->
+	<fieldset style="margin-left:-58px;">
+			<span style="color:#b1461a">*는 필수 입력값 입니다.</span><br>
+					<span class="abab">
+					 <input  class="skinny" id='tname' type="text"
+						placeholder="" required style="width: 500px"><label>*팀 이름</label>
+					</span>
+					
+					<p id="btnTeamPhoto">팀사진변경</p>
+
+					
+					<input id='team_image' name='team_image'  style="border: 0px"
+						type='file' onchange="readURL(this);" />
+					 <img class='teamImg' style="width: 300px; height: 200px">
+					<label class="messageLabel">*팀 소개</label>
+					<textarea id="tinfo" style="width: 485px; background-color:#efefef; border:1px solid #efefef;  placeholder="Team Info"></textarea>
+					<br>
+					<br>
+					<!-- 다음단계 ~~~  -->
+					<span class="admin_next" style="background-color:#375500; color:#fff; padding: 8px 25px 8px 25px; cursor: pointer;  margin-left:450px;">다음 단계&nbsp;＞</span>
+	
+	</fieldset>
+	<fieldset  style="margin-left:-58px;">
+		<span style="color:#b1461a">*는 필수 입력값 입니다.</span><br>
+		<span class="abab">
+					 <input  class="skinny" id='tkname' type="text"
+						placeholder="" required style="width: 500px"><label>*감독 이름</label>
+					</span>
+					
+					<p id="btnTkPhoto">감독사진변경</p>
+
+					<input id='tk_image' name='tk_image' type='file' style="border: 0px" onchange="readURLS(this);" /> 
+					<img class='tkImg' style="width: 300px; height: 200px"></img>
+					 <label class="messageLabel">*감독 소개</label>
+					<textarea style="width:500px; background-color:#efefef; " id="tkinfo" placeholder="감독소개란 입니다 ....."></textarea>
+
+					<input id='tuse' type="hidden">
+		<br>
+		<br>
+		<span class="admin_previous" style=" background-color:#79b112; color:#fff; padding: 8px 25px 8px 25px; cursor: pointer; margin-left: 337px" >＜&nbsp;이전단계</span>
+	<span class="admin_next" style="background-color:#375500; color:#fff; padding: 8px 25px 8px 25px;   cursor: pointer; margin-left: 20px">다음 단계&nbsp;＞</span>
+	</fieldset>
+	<fieldset  style="margin-left:-58px;">
+		<div class="contact-address span5" style="float:none;">
+
+						<h4 style="margin-top: 0px">위치 설정</h4>
+						<div id="map_div" ></div>
+						<div id="locationList" style="width: 500px; height: 370px; display: none;"></div>
+					
+						<input type="text" id="search"  style="width: 380px; margin-top: 10px;">
+<!-- 						<span  id ="btnSearch" style="color: white; background-color:#79b112">검색 </span> -->
+							<input id="btnSearch" type="button" value="검색" style="text-align:center; width: 100px;margin-top: -76px; margin-left: 400px; height: 35px; font-family: '돋움'; font-style: normal; color: #fff; background: #79b112;">
+<!-- 						<input type="button" id ="btnSearch" style="width: 100px; background:#9d426b; color: white; height:34px;font-weight: bold; font-style: normal; text-align: center;"value="검색"> -->
+						
+						<input id="coordX" type="hidden" id="search" > 
+						<input id="coordY" type="hidden" id="search" >
+						<span class="abab">
+						<input  class="skinny" id='team_address_a' type="text"
+						placeholder="" required style="width: 500px"><label>*주소</label>
+						</span> 
+					</div>
+		<span class="admin_previous" style=" background-color:#79b112; margin-left:337px; color:#fff; padding: 8px 25px 8px 25px; cursor: pointer;" >＜&nbsp;이전단계</span>
+		<input type="button" id ="btnTeamAdd"  class="allbtn" style="margin-left:20px;  text-align:center; width: 112px; height:31px;  color: white; font-weight: bold; font-style: normal;"value="추가">
+		<input type="button" id ="btnTeamUpdate"class="allbtn"  style="margin-left:20px;   text-align:center; width: 112px; height:31px; color: white; font-weight: bold; font-style: normal;"value="변경">
+	
+	</fieldset>
+</form>
+			</div>
+
+		</div>
+	
+</section>
+
+<!-- 평가항목 리스트 -->
+<section id="evalList" class="admin_size" style="display: none">
+
+	<div id="eval" class="container">
+		<div style="width: 1000px; text-align: left; margin-bottom: 20px">
+			<form>
+			<button id="btnEvalAdd" class="btn-Add" style="position: absolute; margin-left: 548px; top:209px">추가</button>
+			</form>
+			항목명<input id="evalAddElname" type="text" style="margin: 0">
+			정성/정량<select id="evalAddEltype" style="margin: 0">
+				<option value="0">정량평가</option>
+				<option value="1">정성평가</option>
+			</select> 
+		</div>
+		<table class="evaltable" style="width: 950px; margin-left:13px; margin-bottom:30px; margin-top:3px; font-size: 130%;">
+			<thead style="line-height: 40px; background-color: #eaeaea">
+				<tr>
+					<th>평가 항목</th>
+					<th>정성/정량</th>
+					<th>사용중</th>
+					<th>변경</th>
+				</tr>
+			</thead>
+		</table>
+		
+<!-- 		<form> -->
+<!-- 		<button id="btnEvalBack" class="btn-Back">이전</button> -->
+<!-- 		</form> -->
+		
+	</div>
+</section>
+
+
+
+<!-- 스폰서 -->
+<section class="sponserPage admin_size" id="sponser_admin" style="min-height: 600px;">
+	<div id="sponsor_admin">
+	<ul class="tabs" id="sponser">
+
+	<li><input type="radio" checked name="tabs" id="tab1"> <label
+		for="tab1">후원 거래목록 등록</label>
+		<div id="tab-content3" class="tab-content animated fadeIn" style="margin-top: 70px;">
+			<p style="font-size: 13px; font-family: '돋움'; color:#656565; margin-left: 400px; font-weight: bold;">파일을 선택하여 주세요</p>
+			<form name="sponser_addForm" id="sponser_addForm" method='post'
+				action="sponser/sponser_add.do" enctype="multipart/form-data">
+				<br> <input id='sponser_xlsfile' name='sponser_xlsfile'
+					type='file' style="margin-left: 300px;"/> 
+					<input id='btnsponserAdd' name='sponser_xlsfile' type='button' value="확인" style="background-color: #565656; width:100px;"/>
+
+			</form>
+
+
+			<div id="sponser_add_result"
+				style="display: none; font-family: serif;">
+				<p style="font-size: 10px; font-family: '돋움'; color:#656565; margin-left: 100px; font-weight: bold;">업로드 결과...</p>
+				<p style="font-size: 10px; font-family: '돋움'; color:#656565; margin-left: 200px; font-weight: bold;">
+					총 <span id="sponser_add_result_no"></span>건이 등록되었습니다.
+				</p>
+				<table id="sponser_add_result_table" style=" width: 800px; margin: 0px auto; font-size: 11px; font-family:'돋움'; color:2a273b; text-align: center;">
+				
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>입금날자</th>
+							<th>입금명</th>
+							<th>입금금액</th>
+							<th>입금장소</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+
+				</table>
+			</div>
+
+		</div></li>
+	<li><input type="radio" name="tabs" id="tab2"> <label
+		for="tab2">입금확인</label>
+		<div id="tab-content2" class="tab-content animated fadeIn" style="margin-top: 70px;">
+			<p style="font-size: 13px; font-family: '돋움'; color:#656565; margin-left: 300px; font-weight: bold;">기간 또는 찾으실 입금명을 적어주세요.</p>
+			<span style="font-size: 11px; margin: -15px -3px 0px 100px;">기간
+				:</span> <input type="text" id="spcstart_serch" name="spcstart_serch"><span
+				style="font-size: large; margin: 0px 20px;">~</span> <input
+				type="text" id="spcend_serch" name="spcend_serch">
+
+			<!-- <label>입금명</label> -->
+			<span style="font-size: 11px; margin: 0px 10px 0px 30px;">입금명
+				:</span> <input type="text" id="spdname_serch" name="spdname" style="width: 150px;"> <input
+				type="hidden" id="spcname_serch" name="spcname" value="" style="width: 150px;">
+			<button id="btnsponser_serch" style="background-color: #565656; width:100px; margin-left: 10px; margin-bottom: 28px;">검색</button>
+
+			<div id="sponser_serch_result" style="display: none">
+				<p style="font-size: 13px; font-family: '돋움'; margin-left: 90px;">검색 결과 총 <span id="sponser_serch_result_no"></span>건이 검색되었습니다.
+				</p>
+				<table id="sponser_serch_result_table"  class="" style=" width: 800px; margin: 0px auto; font-size: 11px; font-family:'돋움'; color:2a273b; text-align: center;">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>입금날짜</th>
+							<th>입금명</th>
+							<th>입금금액</th>
+							<th>입금장소</th>
+						</tr>
+					</thead>
+
+				</table>
+			</div>
+		</div></li>
+	<li><input type="radio" name="tabs" id="tab3"> <label
+		for="tab3" class="getxlsfile">후원자 문자발송용 xls 파일</label>
+		<div id="tab-content3" class="tab-content animated fadeIn" style="margin-top: 70px;">
+			<p style="font-size: 13px; font-family: '돋움'; color:#656565; margin-left: 300px; font-weight: bold;">엑셀 파일을 받기 원하시면 버튼클릭해주세요.</p>
+			
+			<button id="btnsponser_get_xlsfile"  style="background-color: #565656; width:150px; margin-left: 10px; margin-left: 350px; margin-bottom: 50PX;">파일 받기</button>
+			
+		</div></li>
+	<li style=" width: 500px;">
+	<input type="radio" name="tabs" > <label
+		 class="getxlsfile">&nbsp;</label>
+	</li>
+</ul>
+
+</div>
+</section>
+
+
+
+<!-- 이미지 미리보기 js -->
+<script>
+function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('.teamImg').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+<script>
+function readURLS(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('.tkImg').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+
+<script>
+function readURLD(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('.tsImg').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+

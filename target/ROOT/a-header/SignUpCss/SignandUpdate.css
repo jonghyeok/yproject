@@ -1,0 +1,212 @@
+#sign .container {
+/*   border: solid 2px red; */
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#myUpdate .container{
+/*    border: solid 2px red;  */
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#sign .reg_section, #myUpdate .reg_section{
+/*   padding:0; */
+  margin: 10px 0;
+  border-bottom: 1px dotted #eee;
+}
+
+#sign .reg_section, h3 #myUpdate .reg_section h3{
+  font-size: 13px;
+  margin: 5px 0;
+  color: #C4A2A2;
+  
+}
+
+/* Form */
+#sign .register{
+  overflow:hidden;
+  position: relative; 
+  margin-top:0px 20px 0px 20px;
+  padding:20px 20px 20px;
+  background: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+  #myUpdate .register{	
+  overflow:hidden;
+  position: relative; 
+  margin-top:20px;
+  padding: 20px 20px 20px;
+  background: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+#sign .register:before, #myUpdate .register:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  z-index: -1;
+  background:rgba(255, 173, 200, 0.08);
+  border-radius:7px;
+  -webkit-border-radius: 7px;
+}
+#sign .register h1, #myUpdate .register h1{
+  margin: -20px -20px 0;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  color:#694551;
+  text-align: center;
+  border-bottom:1px solid #EDEDED;
+  border-radius: 3px 3px 0 0;
+  -webkit-box-shadow: 0 1px #f5f5f5;
+  -moz-box-shadow: 0 1px #f5f5f5;
+  box-shadow: 0 1px #f5f5f5;
+}
+ #myUpdate .register input{
+ 	width:200px;
+
+ }
+#sign .register input{
+  width: 258px;
+
+}
+
+:#sign -moz-placeholder, #myUpdate -moz-placeholer {
+  color: #c9c9c9 !important;
+  font-size: 13px;
+}
+
+#sign ::-webkit-input-placeholder, #myUpdate ::webkit-input-placeholder{
+  color: #ccc;
+  font-size: 13px;
+}
+
+#sign .container input[type=text], #sign .container input[type=password], 
+#sign .register select, #sign .register textarea{
+  padding: 0 10px;
+  height: 34px;
+  color: #404040;
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius:3px;
+  --webkit-border-radius: 5px;
+  outline:3px solid rgba(200, 105, 137, 0.09);
+  -moz-outline-radius:7px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin:5px 0;
+	
+}
+
+
+#myUpdate .container input[type=text], #myUpdate .container input[type=password],
+#myUpdate .register select{
+  margin: 5px;
+  padding: 0 10px;
+  height: 34px;
+  color: #404040;
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius:3px;
+  --webkit-border-radius: 5px;
+  outline:3px solid rgba(200, 105, 137, 0.09);
+  -moz-outline-radius:7px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin:5px 0;
+}
+#managemet-area{
+	width:270px;
+	 margin: 5px;
+  padding: 0 10px;
+  
+  color: #404040;
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius:3px;
+  --webkit-border-radius: 5px;
+  outline:3px solid rgba(200, 105, 137, 0.09);
+  -moz-outline-radius:7px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin:10px 0;
+}
+
+
+#sign .container input[type=text]:focus, 
+#sign .container input[type=password]:focus,
+#myUpdate .container input[type=text]:focus, 
+#myUpdate .container input[type=password]:focus,
+#myUpdate .register textarea:focus {
+  border-color:#FFF7F9;
+  outline-color:rgba(254, 225, 235, 0.7);
+  outline-offset: 0;
+}
+
+#sign ::-webkit-input-placeholder,
+#myUpdate ::-webkit-input-placeholder { /* WebKit browsers */
+    color: #999;
+}
+
+
+
+<!-- 선진 -->
+.utabletd{
+	background-color: #ED5E2F;
+	border: 2px solid red;
+}
+
+
+#check-pass p{
+	text-align: left;
+	margin: 0px;
+	
+}
+.school{
+	margin-right:10px;
+	border: 3px solid red;
+}
+
+#managertable { 
+	width: 400px;	
+}
+
+
+#sign p{
+	text-align: left;
+	
+	
+}
+#contract1, #contract2 {
+	width: 130px; 
+	text-align:left; 
+	color:blue; 
+	margin-left:30px; 
+	cursor:pointer;
+}
+
+#sign-header2{
+	text-align: center;
+/* 	border: 2px solid red; */
+	font-weight: bolder;
+}

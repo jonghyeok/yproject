@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.MemberDao">
+	
+	<select id="getLoginInfo"
+		parameterType="map"
+		resultType="LoginInfo">
+		select
+			MID as id,
+			MNAME as name,
+			MEMAIL as email,
+			MDETADDR as detAddr,
+			MPHONE as phone,
+			MLEVEL as level,
+			TNO
+		from TORY_MEMBER
+		where MID = #{id} and MPASSWORD = #{password};	
+		</select>
+	<select id="getUser"
+		parameterType="String"
+		resultType="LoginInfo">
+		select
+			MID as id,
+			MNAME as name,
+			MEMAIL as email,
+			MDETADDR as detAddr,
+			MPHONE as phone,
+			MLEVEL as level
+		from TORY_MEMBER
+		where MID = #{id} ;
+		</select>
+	
+	<insert id="signUp" parameterType="Member">
+		insert into TORY_MEMBER(
+			MID,MNAME,MPASSWORD,
+			MEMAIL,MDETADDR,
+			MPHONE)
+			values(#{id},#{name},#{password},#{email},#{detAddr},#{phone});
+	</insert>
+	
+		<delete id="delete" parameterType="string">
+		delete from TORY_MEMBER
+		where MID=#{id}
+		</delete>
+	
+	
+		<select id="serchSameId"
+		parameterType="String" resultType="String">
+		select
+			MID as id from TORY_MEMBER
+		where MID = #{id};	
+		</select>
+		
+	<select id="memberlistSearch" parameterType="String"
+	    resultType="Member">
+		select MEMAIL as email,MID as id, MNAME as name,MLEVEL as level,  MPHONE as phone 
+		from TORY_MEMBER 
+		where MNAME= #{value}
+		order by MNAME
+	</select>
+	
+	<select id="memberlist" parameterType="map"
+	    resultType="Member">
+		select TNO,MEMAIL as email,MID as id, MNAME as name,MLEVEL as level, MPHONE as phone 
+		from TORY_MEMBER 
+		order by MNAME
+		limit #{startIndex}, #{pageSize}
+	</select>
+	
+	
+	<select id="sponserdata" parameterType="String" resultType="Member">
+	    select t1.mid as id, t1.mname as name, t1.mlevel as level, t2.spacname, t2.sppc, t1.memail as email
+	    from TORY_MEMBER t1, TORY_SPONSER t2
+	    where t1.mid=#{id} and t1.mid=t2.mid
+	</select>
+	
+	<!-- 페이징 처리  -->
+	<select id="size" resultType="int">
+	    <![CDATA[
+	    select count(*)
+	    from TORY_MEMBER
+	]]></select>
+	<update id="update" parameterType="Member">
+		update TORY_MEMBER set
+			MNAME=#{name},
+			MEMAIL=#{email},
+			MDETADDR=#{detAddr},
+			MPHONE=#{phone} 
+		where MID=#{id};
+	</update>
+	
+		
+		<update id="changePassword" >
+		update TORY_MEMBER set
+			MPASSWORD=#{password}
+			
+		where MID=#{id}
+	</update>
+	
+	
+	<update id="updateLevel" parameterType="Member">
+		update TORY_MEMBER set
+		MLEVEL=#{level},
+		TNO = <if test="tno!=0">#{tno}</if> 
+			  <if test="tno==0">null</if>
+		where MID=#{id};
+	</update>
+	
+
+	<select id="getSponsorData" resultType="Member">
+	    select MNAME as name, MPHONE as phone
+	    from TORY_MEMBER
+	    where MLEVEL=1;
+	</select>
+
+	<select id="findPassword"
+		parameterType="Member" resultType="int">
+		select count(*)
+		from TORY_MEMBER
+		where MEMAIL=#{email} and MID=#{id}
+		</select>
+	
+	
+	<insert id="randPassword" parameterType="Member">
+		insert into TORY_PASSWORD(PWKEY,MID)
+		values(#{randpw},#{id});
+	</insert>
+		
+	
+	<!--랜덤저장소에서 아이디 가져오기-->
+	<select id="findIDtoPassword" parameterType="Member" resultType="String">
+	    select MID 
+	    from TORY_PASSWORD
+	    where PWKEY=#{randpw};
+	</select>
+	
+	<!-- 비밀번호 번경 -->
+	<update id="newPassword" parameterType="Member">
+		update TORY_MEMBER set
+			MPASSWORD=#{password}
+		where MID=#{id};
+	</update>
+	
+	<!-- 랜덤 저장소 쓴거 삭제 -->
+	<delete id="deleteIDtopassword" parameterType="Member">
+		delete from TORY_PASSWORD
+		where PWKEY=#{randpw}
+	</delete>
+
+	</mapper> 

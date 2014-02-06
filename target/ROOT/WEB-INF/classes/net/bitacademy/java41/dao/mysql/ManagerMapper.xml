@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.ManagerDao">
+	
+	<insert id="teamStudentAdd" parameterType="TeamStudent"
+		useGeneratedKeys="true" keyProperty="tsno">
+	
+		insert into TORY_TSTUDENT
+		(
+		TSPHOTO,
+		TSPHONE,
+		TSNAME,
+		TNO,
+		TSBACKNO,
+		TSBIRTH,
+		TSHOBBY,
+		TSFAM1,
+		TSFAM2,
+		TSFAM3,
+		TSDAD,
+		TSMOM,
+		TSPROPHONE,
+		TSETC,
+		TSSTATUS,
+		TSEMAIL)
+		
+		values (
+				#{tsphoto},
+				#{tsphone},
+				#{tsname},
+				#{tno},
+				#{tsbackno},
+				#{tsbirth},
+				#{tshobby},
+				#{tsfam1},
+				#{tsfam2},
+				#{tsfam3},
+				#{tsdad},
+				#{tsmom},
+				#{tsprophone},
+				#{tsother},
+				#{tsstatus},
+				#{tsemail})
+	</insert>
+	
+	<update id="teamStudentUpdate" parameterType="TeamStudent">
+	update TORY_TSTUDENT SET
+		TSPHONE = #{tsphone},
+		<if test="tsphoto!=null">TSPHOTO = #{tsphoto},</if> 
+		TSNAME = #{tsname},
+		TNO = #{tno},
+		TSBACKNO = #{tsbackno},
+		TSBIRTH = #{tsbirth},
+		TSHOBBY = #{tshobby},
+		TSFAM1 = #{tsfam1},
+		TSFAM2 = #{tsfam2},
+		TSFAM3 = #{tsfam3},
+		TSDAD = #{tsdad},
+		TSMOM = #{tsmom},
+		TSPROPHONE = #{tsprophone},
+		TSETC = #{tsother},
+		TSSTATUS = #{tsstatus},
+		TSEMAIL = #{tsemail}
+		where TSNO = #{tsno}
+		
+	</update>
+	
+	<update id="teamStudentUpdate2" parameterType="TeamStudent">
+	update TORY_TSTUDENT SET
+		TSPHONE = #{tsphone},
+		<if test="tsphoto!=null">TSPHOTO = #{tsphoto},</if> 
+		TSNAME = #{tsname},
+		TNO = #{tno},
+		TSBACKNO = #{tsbackno},
+		TSBIRTH = #{tsbirth},
+		TSHOBBY = #{tshobby},
+		TSFAM1 = #{tsfam1},
+		TSFAM2 = #{tsfam2},
+		TSFAM3 = #{tsfam3},
+		TSDAD = #{tsdad},
+		TSMOM = #{tsmom},
+		TSPROPHONE = #{tsprophone},
+		TSETC = #{tsother},
+		TSSTATUS = #{tsstatus},
+		TSGRAD = #{tsgrad},
+		TSEMAIL = #{tsemail}
+		where TSNO = #{tsno}
+		
+	</update>
+	
+	
+	
+	<select id="TeamStudentList" parameterType="TeamStudent" resultType="TeamStudent">
+	
+	select a.tsno,
+		   a.tsname, 
+		   a.tsphoto, 
+		   a.tsbackno,
+		   a.tno,
+		   a.tsbirth,
+		   a.tsfam1,
+		   a.tsfam2,
+		   a.tsfam3,
+		   a.tsphone,
+		   a.tsemail,
+		   a.tshobby,
+		   a.tsprophone,
+		   a.tsgrad,
+		   a.tsetc as tsother,
+		   a.tsaddress as tsaddr,
+		   a.tsstatus,
+		   b.tname
+	from TORY_TSTUDENT a,TORY_TEAM b
+	where a.tno = #{tno} and a.tno = b.tno 
+	</select> 
+	
+	<select id="studentList" parameterType="TeamProperty" resultType="TeamProperty">
+		select ANO,TSNO,RSTATUS,RETC from TORY_TSTUDENT	
+		where ANO=#{ANO} order by TSNO;
+	</select>
+	
+	<select id="serchmemberId"
+		parameterType="String" resultType="Member">
+		 <bind name="pattern" value="'%' + _parameter+ '%'" />
+		select MID as id ,MNAME as name , MEMAIL as email , MDETADDR as detAddr, MPHONE as phone from TORY_MEMBER
+		where (MLEVEL = 0 or MLEVEL = 2) and MNAME LIKE #{pattern};	
+		</select>
+
+	<select id="serchjoinmemberId" parameterType="TeamStudent" resultType="TeamStudent">
+	select tsno,tsname, tsphone,tsbackno,tno,tsbirth,tshobby,tsdad,tsmom,tsprophone,TSETC as tsother,tsstatus,tsemail
+			from TORY_TSTUDENT
+	where tno = #{tno} and tsname = #{tsname}
+	
+	</select>
+	<update id="rollbookSend" parameterType="TeamProperty">
+<!-- 		학생아이디마다 상태를 보내야함 -->
+		update TORY_ROLLBOOK set
+		rstatus= #{rstatus},
+		retc=#{retc}
+		where ano=#{ano} and tsno=#{tsno}
+	</update>
+	
+	<select id="personalList" resultType="TeamProperty">
+	<!-- ELTYPE 이 1 인 것만 찾는다. -->
+		select 	t1.ELNAME, t1.ELTYPE, t4.TSNAME as name
+		from 	TORY_EVALATION_LIST t1, TORY_TRAIN_RECORD t3, TORY_TSTUDENT t4		
+		where 	t4.tsno = t3.tsno and t1.eltype = 1
+		order by tsname , elname;
+		<!-- 학생 이름도 뽑아야함 -->
+	</select>
+	
+	<update id="deletestudent" parameterType="TeamStudent" >
+		update TORY_TSTUDENT SET
+		TSSTATUS = 0
+		WHERE TNO=#{tno} and TSNO=#{tsno}
+	</update>
+	
+	<select id="memberView" 
+			parameterType="int" 
+			resultType="TeamStudent">
+	    select TNO,TSBACKNO,TSNAME,TSBIR,TSADDR,TSHOBBY,
+		TSPHOTO,FNO,TSFAM1,TSFAM2,TSFAM3,TSFAM_F,TSFAM_M,
+		TSPHONE,TSGPHONE,TSOTHER
+		from TORY_TSTUDENT
+		where TSBACKNO=#{tsbackno}
+	</select>
+
+</mapper> 
+
+
+
+
+
+

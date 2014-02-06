@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bitacademy.java41.dao.BoardUploadDao">
+
+	<insert id="addFile" parameterType="Board"
+		useGeneratedKeys="true" keyProperty="bno">
+		insert into TORY_BOARD
+		(btitle,bdate,bcontent,bfurl,bfurl2)
+		
+		values(#{btitle},now(),#{bcontent},#{bfurl},#{bfurl2})
+	</insert>
+	
+	<select id="photoList" resultType="Board">
+	    select bfurl
+	    from TORY_BOARD
+	    
+	      
+	</select>
+	
+	<delete id="photoDelete" parameterType="int">
+		delete from TORY_BOARD
+		where bno=#{bno}
+	</delete>
+	
+	<update id="photoUpdate" parameterType="Board">
+	    
+	    update TORY_BOARD SET
+		btitle=#{btitle},
+		bcontent=#{bcontent},
+		bfurl = #{bfurl}
+		where bno=#{bno}
+		
+		</update>
+</mapper> 
+
+
+
+
+
+
